@@ -1,0 +1,14 @@
+@use "../abstract/color.module" as color;
+@use "../abstract/fonts" as *;
+@use "../abstract/responsive" as *;
+
+.title-root {
+    //border: 1px solid red;
+    .underline{
+        background-color: color.$black;
+        height: 35px;
+        width: 103%;
+        margin-top: -25px;
+        margin-left: -3%;
+    }
+}
