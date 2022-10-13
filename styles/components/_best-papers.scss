@@ -1,0 +1,33 @@
+@use "../abstract/color.module" as color;
+@use "../abstract/fonts" as *;
+@use "../abstract/responsive" as *;
+
+.item-title {
+  height: 100%;
+  z-index: 2;
+  //display: flex;
+  //border: 2px solid blue;
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
+
+  @include tablet {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+  }
+  @include desktop {
+    width: 100%;
+    grid-row: 2 / 3;
+    grid-column: 1 / 4;
+  }
+}
+
+.item-paperlist {
+  border: 10px solid red;
+  width: 100%;
+  height: 100%;
+  @include desktop {
+    width: 100%;
+    grid-row: 3 / 5;
+    grid-column: 1 / 5;
+  }
+}

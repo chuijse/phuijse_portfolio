@@ -10,7 +10,7 @@ import Div100vh from "react-div-100vh";
 
 export default function Description({ isMobile }) {
   return (
-    <section className="description-grid">
+    <section className="grid-layout">
       <div className="item-title">
         <Title title={"Pablo Huijse Heise"} />
       </div>
