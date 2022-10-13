@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Description from "../components/Description";
 
-export default function Home() {
+export default function Home({ isMobile }) {
   return (
     <div>
       <Head>
@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <article className="home-layout">
-        <Description />
+        <Description isMobile={isMobile} />
       </article>
     </div>
   );
