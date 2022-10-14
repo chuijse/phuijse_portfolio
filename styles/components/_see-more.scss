@@ -1,0 +1,23 @@
+@use "../abstract/color.module" as color;
+@use "../abstract/fonts" as *;
+@use "../abstract/responsive" as *;
+
+.see-more-root {
+  cursor: pointer;
+  border: none;
+  //border: 1px solid red;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  background: transparent;
+  justify-content: space-between;
+
+  .text {
+    flex-shrink: 0;
+    //border: 1px solid blue;
+    color: color.$text;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+}

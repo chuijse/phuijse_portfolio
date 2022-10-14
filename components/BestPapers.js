@@ -1,4 +1,5 @@
 import React from "react";
+import SeeMore from "./SeeMore";
 import Title from "./Title";
 
 const papers = [
@@ -26,16 +27,40 @@ export default function BestPapers({ isMobile }) {
         <Title title={"Best Papers"} />
       </div>
       <div className="item-paperlist">
-        <ul>
-          {papers.map((paper, i) => (
-            <li key={`best-paper-${i}`}>
-              <p>{paper.name}</p>
-              <p>{paper.magasine}</p>
-              <p>{paper.date}</p>
-            </li>
-          ))}
-        </ul>
+        {papers.map((paper, i) => (
+          <Paper
+            name={paper.name}
+            i={i}
+            magasine={paper.magasine}
+            date={paper.date}
+          />
+        ))}
       </div>
+      <div className="item-see-more">
+        <SeeMore />
+      </div>
+      <div className="item-bottom-line" />
     </section>
+  );
+}
+
+function Paper({ name, magasine, date, i }) {
+  return (
+    <li key={`best-paper-${i}`}>
+      <div className="paper-number-list">
+        <h5>
+          <strong>{i + 1}</strong>
+        </h5>
+      </div>
+      <div>
+        <h3>{name}</h3>
+        <div className="paper-data">
+          <h5>
+            <strong>{magasine}&nbsp;</strong>
+            <span className="gray">{date}</span>
+          </h5>
+        </div>
+      </div>
+    </li>
   );
 }
