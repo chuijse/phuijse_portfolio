@@ -30,7 +30,7 @@ export default function BestPapers({ isMobile }) {
         {papers.map((paper, i) => (
           <Paper
             name={paper.name}
-            i={i}
+            key={`best-paper-${i}`}
             magasine={paper.magasine}
             date={paper.date}
           />
@@ -46,7 +46,7 @@ export default function BestPapers({ isMobile }) {
 
 function Paper({ name, magasine, date, i }) {
   return (
-    <li key={`best-paper-${i}`}>
+    <li>
       <div className="paper-number-list">
         <h5>
           <strong>{i + 1}</strong>
