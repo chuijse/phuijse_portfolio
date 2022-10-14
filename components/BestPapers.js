@@ -30,6 +30,7 @@ export default function BestPapers({ isMobile }) {
         {papers.map((paper, i) => (
           <Paper
             name={paper.name}
+            i={i}
             key={`best-paper-${i}`}
             magasine={paper.magasine}
             date={paper.date}
