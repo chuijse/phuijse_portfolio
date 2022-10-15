@@ -39,7 +39,7 @@ export default function Seo({
       />
       <meta property="og:image" content={image} />
       <meta property="og:description" content={description} key="description" />
-      <meta property="og:site_name" content="Cristian Huijse Portfolio" />
+      <meta property="og:site_name" content="Pablo huijse Portfolio" />
       <meta property="og:author" content={author} />
       {/* Twitter Meta Tags */}
       <meta property="twitter:card" content="summary_large_image" />
