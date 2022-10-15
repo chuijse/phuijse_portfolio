@@ -1,0 +1,47 @@
+@use "../abstract/color.module" as color;
+@use "../abstract/fonts" as *;
+@use "../abstract/responsive" as *;
+
+.back-button {
+  position: sticky;
+  position: -webkit-sticky;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  display: flex;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  //border: 1px solid red;
+
+  @include tablet {
+    width: 90px;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid color.$text;
+  }
+  @include desktop {
+    width: 130px;
+  }
+  @include large {
+    width: 160px;
+  }
+
+  .text {
+    font-family: "IBM plex mono", monospace;
+    flex-shrink: 0;
+    //border: 1px solid blue;
+    color: color.$text;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-right: 0px;
+    //font-size: medium;
+
+    @include tablet {
+      font-size: 1.2rem;
+      //font-size: auto;
+      margin-right: 1rem;
+    }
+  }
+}

@@ -20,8 +20,8 @@ export default function Seo({
   const router = useRouter();
   return (
     <Head>
-      <title>{`${pageTitle}`}</title>
-      <meta name="title" content={`${pageTitle}`}></meta>
+      <title>{`PHH | ${pageTitle}`}</title>
+      <meta name="title" content={`PHH | ${pageTitle}`}></meta>
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="year" content={year} />
@@ -31,7 +31,7 @@ export default function Seo({
       <meta name="Revisit-after" content="1 days" />
       <meta name="robots" content="index, follow" />
       {/* Facebook Meta Tags */}
-      <meta property="og:title" content={`${pageTitle}`} key="title" />
+      <meta property="og:title" content={`PHH | ${pageTitle}`} key="title" />
       <meta property="og:type" content={article ? "article" : "webpage"} />
       <meta
         property="og:url"
@@ -43,7 +43,7 @@ export default function Seo({
       <meta property="og:author" content={author} />
       {/* Twitter Meta Tags */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:title" content={`${pageTitle}`} />
+      <meta property="twitter:title" content={`PHH | ${pageTitle}`} />
       <meta
         property="twitter:url"
         content={router.route === "/" ? domain : `${domain}${router.pathname}`}

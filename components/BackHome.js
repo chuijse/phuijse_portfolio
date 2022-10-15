@@ -5,8 +5,12 @@ export default function SeeMore({ url = "/" }) {
   return (
     <React.Fragment>
       <Link href={url}>
-        <button className="see-more-root">
-          <a className="text">SeeMore</a>
+        <button className="back-button">
+          <a className="text">
+            Back
+            <br />
+            Home
+          </a>
         </button>
       </Link>
     </React.Fragment>

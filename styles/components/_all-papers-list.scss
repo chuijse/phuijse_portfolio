@@ -1,0 +1,49 @@
+@use "../abstract/color.module" as color;
+@use "../abstract/fonts" as *;
+@use "../abstract/responsive" as *;
+@use "../components/best-papers" as *;
+
+.item-all-papers-list {
+  @include item-list;
+  margin-top: 0px;
+  p {
+    margin-top: 0px;
+  }
+  @include tablet {
+    margin-top: 0px;
+    width: 100%;
+    grid-row: 3 / 4;
+    grid-column: 2 /3;
+  }
+  @include desktop {
+    margin-top: 0px;
+    width: 100%;
+    grid-row: 3 / 5;
+    grid-column: 2 / 3;
+  }
+}
+
+.item-home-button {
+  position: fixed;
+  bottom: 12.5%;
+  right: 0%;
+  background: #000;
+  padding: 15px;
+
+  @include tablet {
+    background: none;
+    padding: 0px;
+    position: sticky;
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    right: 0%;
+    top: 220px;
+    width: 100%;
+    margin-top: 0px;
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+  }
+}
