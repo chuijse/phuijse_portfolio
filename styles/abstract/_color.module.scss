@@ -2,6 +2,7 @@ $background-dark: #141414;
 $text: #ffffff;
 $black: #000000;
 $gray: #969696;
+$primary: #49DFF3;
 
 /*$gray-color: #808080;
 $primary-color: #ff7f2a;
@@ -9,10 +10,11 @@ $secondary-color: #1a1a1a;
 
 $white-color: #ffffff;
 $black-color: #000000;
-
+*/
 :export {
-    primaryColor: $primary-color;
-    secondaryColor:$secondary-color;
-    blackColor: $black-color;
-    whiteColor: $white-color;
-  }*/
+    textColor: $text;
+    primaryColor: $primary;
+    grayColor: $gray;
+    blackColor: $black;
+    backgrounddarkColor: $background-dark;
+  }

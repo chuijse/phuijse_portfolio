@@ -52,6 +52,31 @@ h3 {
   }
 }
 
+h4 {
+  font-family: "IBM PLEX Mono", sans-serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: color.$text;
+  line-height: 1.4rem;
+  margin-bottom: 1.5rem;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  @include tablet {
+    font-size: 1.9rem;
+    line-height: 1.9rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-top: 3px;
+    padding-bottom: 2px;
+  }
+
+  @include large {
+    font-size: 1.9rem;
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
 h5 {
   font-family: "IBM PLEX Mono", monospace;
   font-weight: 400;
@@ -97,4 +122,8 @@ code {
 
 .gray {
   color: color.$gray;
+}
+
+.primary {
+  color: color.$primary
 }

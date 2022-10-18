@@ -12,7 +12,7 @@ export default function Description({ isMobile }) {
   return (
     <section className="grid-layout">
       <div className="item-title">
-        <Title title={"Pablo Huijse Heise"} />
+        <Title>Pablo Huijse Heise</Title>
       </div>
       <div className="item-image">
         <Image

@@ -1,6 +1,7 @@
 import Description from "../components/Description";
 import PaperList from "../components/PapersList";
 import Seo from "../components/Seo";
+import Skills from "../components/Skills";
 
 export default function Home({ isMobile }) {
   return (
@@ -9,6 +10,7 @@ export default function Home({ isMobile }) {
       <article className="home-layout">
         <Description isMobile={isMobile} />
         <PaperList isMobile={isMobile} papers={papers} />
+        <Skills />
       </article>
     </div>
   );

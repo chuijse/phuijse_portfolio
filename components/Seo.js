@@ -57,10 +57,12 @@ export default function Seo({
       <meta name="reply-to" content="pablo.huijse@gmail.com" />
       <link rev="made" href="mailto:pablo.huijse@gmail.com" />
       {/*icons*/}
+      <link rel="shortcut icon" href={icon} />
       <link rel="apple-touch-icon" sizes="180x180" href={iconApple} />
       <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
       <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
       <link rel="manifest" href="/site.webmanifest"></link>
+      {/*<meta name="theme-color" content="#ffffff" />*/}
     </Head>
   );
 }

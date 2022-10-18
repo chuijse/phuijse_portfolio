@@ -7,7 +7,7 @@ export default function PaperList({ isMobile, allPapers = false, papers }) {
   return (
     <section className={allPapers ? "grid-list" : "grid-layout"}>
       <div className={allPapers ? "item-title-list" : "item-title"}>
-        <Title title={"Best Papers"} />
+        <Title>Best Papers</Title>
       </div>
       <div className={allPapers ? "item-all-papers-list" : "item-paperlist"}>
         {allPapers && (

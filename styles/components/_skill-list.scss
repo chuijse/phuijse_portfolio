@@ -1,0 +1,16 @@
+@use "../abstract/color.module" as color;
+@use "../abstract/fonts" as *;
+@use "../abstract/responsive" as *;
+
+.skill-list{
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    h5{
+        margin-left: 20px;
+        margin-top: 0px;
+    }
+}
