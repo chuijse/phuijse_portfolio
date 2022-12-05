@@ -25,12 +25,15 @@ export default function Skills() {
           </strong>{" "}
           Astronomy
         </Title>
+      </div>
+      <div className="itme-skill-description">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam
           molestie at condimentum velit, adipiscing nunc justo, molestie. Dictum
           at purus metus sit nulla augue nec vel. Vel velit donec semper lacus
           nulla. Et non vehicula nunc habitant.
         </p>
+
         <h4>my Skills</h4>
         {skills.map((icon, i) => (
           <ul>
