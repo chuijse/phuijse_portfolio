@@ -2,6 +2,7 @@ import Description from "../components/Description";
 import List from "../components/List";
 import Seo from "../components/Seo";
 import Skills from "../components/Skills";
+import Contact from "../components/Contact";
 
 export default function Home({ isMobile }) {
   return (
@@ -18,6 +19,7 @@ export default function Home({ isMobile }) {
           url="courses"
           courses={true}
         />
+        <Contact />
       </article>
     </div>
   );
