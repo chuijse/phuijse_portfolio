@@ -3,7 +3,7 @@ import Description from "../components/Description";
 import PaperList from "../components/List";
 import Seo from "../components/Seo";
 
-const papers = [
+const courses = [
   {
     name: "The delay of shock breakout due to circumstellar material evident in most type II supernovae",
     magasine: "Nature Astronomy",
@@ -54,8 +54,8 @@ export default function Home({ isMobile }) {
         <PaperList
           isMobile={isMobile}
           list={true}
-          items={papers}
-          title="All papers"
+          items={courses}
+          title="All courses"
         />
       </article>
     </div>

@@ -1,5 +1,5 @@
 import Description from "../components/Description";
-import PaperList from "../components/PapersList";
+import List from "../components/List";
 import Seo from "../components/Seo";
 import Skills from "../components/Skills";
 
@@ -9,8 +9,15 @@ export default function Home({ isMobile }) {
       <Seo pageTitle="home" />
       <article className="home-layout">
         <Description isMobile={isMobile} />
-        <PaperList isMobile={isMobile} papers={papers} />
+        <List isMobile={isMobile} items={papers} />
         <Skills />
+        <List
+          isMobile={isMobile}
+          items={courses}
+          title="Best courses"
+          url="courses"
+          courses={true}
+        />
       </article>
     </div>
   );
@@ -30,6 +37,24 @@ const papers = [
   {
     name: "The delay of shock breakout due to circumstellar material evident in most type II supernovae",
     magasine: "Nature Astronomy",
+    date: "2018/10",
+  },
+];
+
+const courses = [
+  {
+    name: "Introducción al método de Monte Carlo y a MCMC",
+    content: "math",
+    date: "2018/10",
+  },
+  {
+    name: "Introducción al método de Monte Carlo y a MCMC",
+    content: "AI",
+    date: "2018/10",
+  },
+  {
+    name: "Introducción al método de Monte Carlo y a MCMC",
+    content: "Astrophicis",
     date: "2018/10",
   },
 ];

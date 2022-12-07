@@ -2,15 +2,22 @@ import React from "react";
 import SeeMore from "./SeeMore";
 import Title from "./Title";
 import BackHome from "./BackHome";
+import title from "./Title";
 
-export default function PaperList({ isMobile, allPapers = false, papers }) {
+export default function List({
+  isMobile,
+  list = false,
+  items,
+  title = "Best Papers",
+  url = "papers",
+}) {
   return (
-    <section className={allPapers ? "grid-list" : "grid-layout"}>
-      <div className={allPapers ? "item-title-list" : "item-title"}>
-        <Title>Best Papers</Title>
+    <section className={list ? "grid-list" : "grid-layout"}>
+      <div className={list ? "item-title-list" : "item-title"}>
+        <Title>{title}</Title>
       </div>
-      <div className={allPapers ? "item-all-papers-list" : "item-paperlist"}>
-        {allPapers && (
+      <div className={list ? "item-all-papers-list" : "item-paperlist"}>
+        {list && (
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam
             molestie at condimentum velit, adipiscing nunc justo, molestie.
@@ -18,25 +25,26 @@ export default function PaperList({ isMobile, allPapers = false, papers }) {
             molestie.
           </p>
         )}
-        {papers.map((paper, i) => (
-          <Paper
-            name={paper.name}
+        {items.map((item, i) => (
+          <Item
+            name={item.name}
             i={i}
             key={`best-paper-${i}`}
-            magasine={paper.magasine}
-            date={paper.date}
+            magasine={item.magasine}
+            content={item.content}
+            date={item.date}
           />
         ))}
       </div>
-      {!allPapers && (
+      {!list && (
         <React.Fragment>
           <div className="item-see-more">
-            <SeeMore url="papers" />
+            <SeeMore url={url} />
           </div>
           <div className="item-bottom-line" />
         </React.Fragment>
       )}
-      {allPapers && (
+      {list && (
         <div className="item-home-button">
           <BackHome />
         </div>
@@ -45,7 +53,7 @@ export default function PaperList({ isMobile, allPapers = false, papers }) {
   );
 }
 
-function Paper({ name, magasine, date, i }) {
+function Item({ name, magasine, date, i, content }) {
   return (
     <li>
       <div className="paper-number-list">
@@ -57,7 +65,7 @@ function Paper({ name, magasine, date, i }) {
         <h3>{name}</h3>
         <div className="paper-data">
           <h5>
-            <strong>{magasine}&nbsp;</strong>
+            <strong>{magasine || content}&nbsp;</strong>
             <span className="gray">{date}</span>
           </h5>
         </div>
