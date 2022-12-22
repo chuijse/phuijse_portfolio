@@ -22,13 +22,30 @@ export default function Skills() {
           className="email-form-root"
         >
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Write your name.."
+          />
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="subject">Subject:</label>
-          <input type="text" id="subject" name="subject" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Write your email.."
+          />
           <label for="message">Message:</label>
-          <input type="text" id="message" name="message" required />
+          <textarea
+            type="text"
+            id="message"
+            name="message"
+            required
+            className="message-input"
+            placeholder="Great to meet you"
+          />
           <button type="submit">Submit</button>
         </form>
         <h5>my mail</h5>
