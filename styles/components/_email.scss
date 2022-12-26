@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   //border: 2px solid purple;
-  grid-row: 3 / 4;
+  grid-row:  2/ 4;
   grid-column: 2 / 4;
   @include tablet {
     //margin-top: 40px;
@@ -25,7 +25,7 @@
 .email-form-root{
     display: flex;
     flex-direction: column;
-    p{
+    p {
         margin-bottom: 0;
     }
     label {
@@ -34,6 +34,7 @@
         font-size: 1.2rem;
         margin-top: 0.75rem;
     }
+
     input {
       margin-top: 5px;
       background-color: color.$light-gray;
@@ -45,15 +46,37 @@
       &:focus {
         outline: none;
         border-bottom: 3px solid color.$primary;
-        
-
         //background-color: lightblue;
       }
     }
 
     .message-input {
       padding: 15px;
+      margin-top: 5px;
       height: 100px;
       resize: none;
+      &:focus {
+        outline: none;
+        border-bottom: 3px solid color.$primary;
+        //background-color: lightblue;
+      }
+    }
+
+    .submit-button {
+      width: auto;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      text-align: start;
+      cursor: pointer;
+
+      &:hover {
+        //border: 2px solid color.$primary;
+        h4 {
+          color: color.$primary
+          
+        }
+      }
     }
 }

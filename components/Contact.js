@@ -46,12 +46,11 @@ export default function Skills() {
             className="message-input"
             placeholder="Great to meet you"
           />
-          <button type="submit">Submit</button>
+
+          <button onClick={() => null} className="submit-button">
+            <h4>- Submit -</h4>
+          </button>
         </form>
-        <h5>my mail</h5>
-        <h5>
-          <i>Pablo.huijse@gmail.com</i>
-        </h5>
       </div>
     </article>
   );
