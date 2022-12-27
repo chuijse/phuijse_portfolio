@@ -3,25 +3,40 @@ import List from "../components/List";
 import Seo from "../components/Seo";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
+import { useRef } from "react";
+import Image from "next/image";
+import image from "../images/1.jpg";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  MotionValue,
+  useInView,
+} from "framer-motion";
 
 export default function Home({ isMobile }) {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   return (
-    <div>
-      <Seo pageTitle="home" />
-      <article className="home-layout">
-        <Description isMobile={isMobile} />
-        <List isMobile={isMobile} items={papers} />
-        <Skills />
-        <List
-          isMobile={isMobile}
-          items={courses}
-          title="Best courses"
-          url="courses"
-          courses={true}
-        />
-        <Contact />
-      </article>
-    </div>
+    <article>
+      <Description isMobile={isMobile} />
+      <List isMobile={isMobile} items={papers} />
+      <Skills />
+      <List
+        isMobile={isMobile}
+        items={courses}
+        title="Best courses"
+        url="courses"
+        courses={true}
+      />
+      <Contact />
+    </article>
   );
 }
 
@@ -60,3 +75,15 @@ const courses = [
     date: "2018/10",
   },
 ];
+
+/*<Description isMobile={isMobile} />
+        <List isMobile={isMobile} items={papers} />
+        <Skills />
+        <List
+          isMobile={isMobile}
+          items={courses}
+          title="Best courses"
+          url="courses"
+          courses={true}
+        />
+        <Contact />*/
