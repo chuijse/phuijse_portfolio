@@ -4,8 +4,7 @@ import Seo from "../components/Seo";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import { useRef } from "react";
-import Image from "next/image";
-import image from "../images/1.jpg";
+
 import {
   motion,
   useScroll,

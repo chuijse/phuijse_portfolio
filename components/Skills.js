@@ -36,12 +36,8 @@ export default function Skills() {
 
         <h4>my Skills</h4>
         {skills.map((icon, i) => (
-          <ul>
-            <SkillsList
-              name={icon.name}
-              url={icon.url}
-              key={`skill-list-${i}`}
-            />
+          <ul key={`skill-list-${i}`}>
+            <SkillsList name={icon.name} url={icon.url} />
           </ul>
         ))}
       </div>
