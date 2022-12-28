@@ -8,7 +8,7 @@ export default function List({
   isMobile,
   list = false,
   items,
-  title = "Best Papers",
+  title = "Selected Papers",
   url = "papers",
 }) {
   return (
@@ -27,12 +27,13 @@ export default function List({
         )}
         {items.map((item, i) => (
           <Item
-            name={item.name}
+            name={item.title}
             i={i}
             key={`best-paper-${i}`}
-            magasine={item.magasine}
+            magazine={item.journal}
             content={item.content}
-            date={item.date}
+            date={item.year}
+            url={item.doi}
           />
         ))}
       </div>
@@ -53,7 +54,7 @@ export default function List({
   );
 }
 
-function Item({ name, magasine, date, i, content }) {
+function Item({ name, magazine, date, i, content, url }) {
   return (
     <li>
       <div className="paper-number-list">
@@ -65,8 +66,11 @@ function Item({ name, magasine, date, i, content }) {
         <h3>{name}</h3>
         <div className="paper-data">
           <h5>
-            <strong>{magasine || content}&nbsp;</strong>
-            <span className="gray">{date}</span>
+            <strong>{magazine || content},&nbsp;</strong>
+            <span className="gray">{date}, </span>
+            <a href={`http://doi.org/${url}`} target="_blank">
+              {url}
+            </a>
           </h5>
         </div>
       </div>
