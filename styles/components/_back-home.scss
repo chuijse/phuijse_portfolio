@@ -29,6 +29,7 @@
   }
 
   .text {
+    transform-origin: bottom left;
     font-family: "IBM plex mono", monospace;
     flex-shrink: 0;
     //border: 1px solid blue;

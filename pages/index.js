@@ -4,14 +4,8 @@ import Seo from "../components/Seo";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import { useRef } from "react";
-import { createClient } from "next-sanity";
-
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: "production",
-  apiVersion: "2021-10-14",
-  useCdn: false,
-});
+import { client } from "../lib/sanity.client";
+import { groq } from "next-sanity";
 
 import {
   motion,
@@ -22,15 +16,15 @@ import {
   useInView,
 } from "framer-motion";
 
-export default function Home({ isMobile, papers }) {
-  console.log(papers);
-
+export default function Home({ isMobile, papers, courses }) {
+  console.log(courses);
   return (
     <article>
       <Description isMobile={isMobile} />
       <List isMobile={isMobile} items={papers} />
       <Skills />
       <List
+        isCourses={true}
         isMobile={isMobile}
         items={courses}
         title="Best courses"
@@ -44,40 +38,20 @@ export default function Home({ isMobile, papers }) {
 
 export async function getStaticProps() {
   const papers = await client.fetch(`*[_type == "paper"]`);
+  const courses = await client.fetch(groq`*[_type == "course"]{
+    _id,
+    name,
+    startYear,
+    finalYear,
+    abstract,
+    repository,
+    "institutions": institutions[]->{program, institution, url}
+  }`);
 
   return {
     props: {
       papers,
+      courses,
     },
   };
 }
-
-const courses = [
-  {
-    name: "Introducción al método de Monte Carlo y a MCMC",
-    content: "math",
-    date: "2018/10",
-  },
-  {
-    name: "Introducción al método de Monte Carlo y a MCMC",
-    content: "AI",
-    date: "2018/10",
-  },
-  {
-    name: "Introducción al método de Monte Carlo y a MCMC",
-    content: "Astrophicis",
-    date: "2018/10",
-  },
-];
-
-/*<Description isMobile={isMobile} />
-        <List isMobile={isMobile} items={papers} />
-        <Skills />
-        <List
-          isMobile={isMobile}
-          items={courses}
-          title="Best courses"
-          url="courses"
-          courses={true}
-        />
-        <Contact />*/

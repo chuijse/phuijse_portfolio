@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import SeeMore from "./SeeMore";
 import Title from "./Title";
 import BackHome from "./BackHome";
 import title from "./Title";
+import { motion } from "framer-motion";
+import style from "../styles/abstract/_color.module.scss";
 
 export default function List({
+  isCourses = false,
   isMobile,
   list = false,
   items,
@@ -27,13 +30,17 @@ export default function List({
         )}
         {items.map((item, i) => (
           <Item
-            name={item.title}
+            isCourse={isCourses}
+            abstract={item.abstract}
+            name={isCourses ? item.name : item.title}
             i={i}
             key={`best-paper-${i}`}
             magazine={item.journal}
-            content={item.content}
-            date={item.year}
-            url={item.doi}
+            institutions={item.institutions}
+            date={
+              isCourses ? `${item.startYear} to ${item.finalYear}` : item.year
+            }
+            url={isCourses ? item.repository : item.doi}
           />
         ))}
       </div>
@@ -54,7 +61,18 @@ export default function List({
   );
 }
 
-function Item({ name, magazine, date, i, content, url }) {
+function Item({
+  isCourse,
+  name,
+  magazine,
+  date,
+  i,
+  institutions,
+  url,
+  abstract,
+}) {
+  const [isSelected, setSelected] = useState(false);
+
   return (
     <li>
       <div className="paper-number-list">
@@ -63,13 +81,44 @@ function Item({ name, magazine, date, i, content, url }) {
         </h5>
       </div>
       <div>
-        <h3>{name}</h3>
+        <motion.h3
+          onHoverStart={() => setSelected(true)}
+          onHoverEnd={() => setSelected(false)}
+          animate={{ color: isSelected ? style.primaryColor : style.textColor }}
+        >
+          {name}
+        </motion.h3>
+
+        <motion.p
+          initial={{ height: 0, opacity: 0 }}
+          animate={{
+            height: isSelected ? "auto" : "0",
+            opacity: isSelected ? 1 : 0,
+            //y: isSelected ? "0" : "-300px",
+            clipPath: isSelected
+              ? "inset(0% 0% 0% 0%)"
+              : "inset(0% 0% 100% 0%)",
+          }}
+          transition={{ duration: 0.5 }}
+          className="paper-abstract"
+        >
+          {abstract}
+        </motion.p>
+
         <div className="paper-data">
           <h5>
-            <strong>{magazine || content},&nbsp;</strong>
+            <strong>
+              {magazine ||
+                `${institutions[0].program}, ${institutions[0].institution}`}
+              ,&nbsp;
+            </strong>
             <span className="gray">{date}, </span>
-            <a href={`http://doi.org/${url}`} target="_blank">
-              {url}
+            <a
+              href={isCourse ? { url } : `http://doi.org/${url}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {isCourse ? "Github" : url}
             </a>
           </h5>
         </div>

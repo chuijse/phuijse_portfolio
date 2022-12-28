@@ -14,8 +14,19 @@
     margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
+
     @include tablet {
       margin-bottom: 5rem;
+    }
+
+    h3{
+      z-index: 20;
+    }
+
+    .paper-abstract{
+      display: flex ;
+      margin-bottom: 0px;
+      z-index: 0;
     }
 
     .paper-number-list {
@@ -62,7 +73,14 @@
           margin-top: 10px;
         }
       }
+      a{
+        color: color.$primary;
+        &:hover{
+          text-decoration: underline
+        }
+      }
     }
+
   }
 }
 
