@@ -1,16 +1,16 @@
 @use "./abstract/color.module" as color;
 @use "./abstract/fonts";
 @use "./sections/skills";
-
 @use "./sections/home";
 @use "./sections/papers";
 
 html{
   scroll-snap-type: y mandatory;
-  overscroll-behavior-y: contain;
-  overflow-y: auto;
+  //overscroll-behavior-y: contain;
+  //overflow-y: auto;
   scroll-snap-stop: always;
   scroll-behavior: smooth;
+  //overflow: hidden;
 }
 
 body {
@@ -28,7 +28,7 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -36,7 +36,7 @@ a {
     color: white;
     background: black;
   }
-}
+}*/
 
 .index-section {
   display: flex;

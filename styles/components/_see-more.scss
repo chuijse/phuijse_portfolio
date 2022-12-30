@@ -12,7 +12,7 @@
   background: transparent;
   justify-content: space-between;
   transform-origin: bottom right;
-
+  pointer-events: all;
   .text {
     flex-shrink: 0;
     //border: 1px solid blue;

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@iconify/react": "^4.0.0",
     "@portabletext/react": "^2.0.0",
     "@sanity/image-url": "^1.0.1",

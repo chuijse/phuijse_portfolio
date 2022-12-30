@@ -74,7 +74,10 @@ function Item({
   const [isSelected, setSelected] = useState(false);
 
   return (
-    <li>
+    <motion.li
+      onTap={() => setSelected(!isSelected)}
+      //onHoverEnd={() => setSelected(false)}
+    >
       <div className="paper-number-list">
         <h5>
           <strong>{i + 1}</strong>
@@ -82,24 +85,26 @@ function Item({
       </div>
       <div>
         <motion.h3
-          onHoverStart={() => setSelected(true)}
-          onHoverEnd={() => setSelected(false)}
+          //onHoverStart={() => setSelected(true)}
+          whileHover={{ color: style.primaryColor }}
           animate={{ color: isSelected ? style.primaryColor : style.textColor }}
+          initial={{ cursor: "pointer" }}
         >
           {name}
         </motion.h3>
 
         <motion.p
           initial={{ height: 0, opacity: 0 }}
+          t
           animate={{
-            height: isSelected ? "auto" : "0",
+            height: isSelected ? "auto" : "0px",
             opacity: isSelected ? 1 : 0,
             //y: isSelected ? "0" : "-300px",
             clipPath: isSelected
               ? "inset(0% 0% 0% 0%)"
               : "inset(0% 0% 100% 0%)",
           }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
           className="paper-abstract"
         >
           {abstract}
@@ -114,7 +119,7 @@ function Item({
             </strong>
             <span className="gray">{date}, </span>
             <a
-              href={isCourse ? { url } : `http://doi.org/${url}`}
+              href={isCourse ? url : `http://doi.org/${url}`}
               target="_blank"
               rel="noreferrer"
             >
@@ -123,6 +128,6 @@ function Item({
           </h5>
         </div>
       </div>
-    </li>
+    </motion.li>
   );
 }

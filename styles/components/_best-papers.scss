@@ -24,6 +24,9 @@
     }
 
     .paper-abstract{
+      white-space: wrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       display: flex ;
       margin-bottom: 0px;
       z-index: 0;
@@ -107,6 +110,7 @@
   align-items: flex-end;
   grid-row: 3 / 4;
   grid-column: 2 / 3;
+  pointer-events: none;
   @include tablet {
     grid-row: 4 / 5;
     grid-column: 2 / 4;

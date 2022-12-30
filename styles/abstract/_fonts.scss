@@ -127,3 +127,11 @@ code {
 .primary {
   color: color.$primary
 }
+
+caption{
+  font-family: "IBM PLEX Mono", monospace;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: color.$text;
+  text-transform: uppercase;
+}

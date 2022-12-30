@@ -17,7 +17,6 @@ import {
 } from "framer-motion";
 
 export default function Home({ isMobile, papers, courses }) {
-  console.log(courses);
   return (
     <article>
       <Description isMobile={isMobile} />
