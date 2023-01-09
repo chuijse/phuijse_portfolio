@@ -8,9 +8,9 @@ import Div100vh from "react-div-100vh";
 
 //445 x 653
 
-export default function Description({ isMobile }) {
+export default function Description({ isMobile, id = "undefined" }) {
   return (
-    <section className="grid-layout">
+    <section className="grid-layout" id={id}>
       <div className="item-title">
         <Title>Pablo Huijse Heise</Title>
       </div>
@@ -26,21 +26,45 @@ export default function Description({ isMobile }) {
         />
       </div>
       <div className="item-abstract">
-        <p>
-          Pablo nació en Valdivia , Chile en 1985. Recibió su B.Sc. y PE en
-          <strong>Ingeniería Eléctrica de la Universidad de Chile</strong> en
-          2009. Recibió su{" "}
-          <b>doctorado en Ingeniería Eléctrica de la Universidad de Chile</b> en
-          2014. En 2015-2017 realizó un{" "}
-          <b>postdoctorado en el Instituto Milenio de Astrofísica</b> (MAS).
-          Desde 2018 es un joven investigador del MAS y profesor asistente del
-          Instituto de Informática de la Universidad Austral de Chile . También
-          participa en el proyecto ALeRCE. Su investigación trata sobre métodos
-          computacionales para analizar datos astronómicos y sus áreas de
-          especialización son el aprendizaje automático, el aprendizaje
-          profundo, la inferencia bayesiana, el procesamiento estadístico de
-          señales y la teoría de la información.
-        </p>
+        {isMobile ? (
+          <p className="paragraph-description">
+            <li className="paragraph-list">
+              <b>Ingeniero Eléctrico de la Universidad de Chile</b>, 2009
+            </li>
+            <li className="paragraph-list">
+              <b>Doctorado en Ingeniera Eléctrico de la Universidad de Chile</b>
+              , 2014
+            </li>
+            <li className="paragraph-list">
+              <b>Postdoctorado en el Instituto Milenio de Astrofísica (MAS)</b>,
+              2015 - 2017
+            </li>
+            <li className="paragraph-list">
+              <b>
+                Investigador del MAS, profesor asistente del Instituto de
+                Informática de la Universidad Austral de Chile y participante en
+                el proyecto ALeRCE
+              </b>
+              , 2018 - presente
+            </li>
+          </p>
+        ) : (
+          <p>
+            Pablo nació en Valdivia , Chile en 1985. Recibió su B.Sc. y PE en
+            <strong>Ingeniería Eléctrica de la Universidad de Chile</strong> en
+            2009. Recibió su{" "}
+            <b>doctorado en Ingeniería Eléctrica de la Universidad de Chile</b>{" "}
+            en 2014. En 2015-2017 realizó un{" "}
+            <b>postdoctorado en el Instituto Milenio de Astrofísica</b> (MAS).
+            Desde 2018 es un joven investigador del MAS y profesor asistente del
+            Instituto de Informática de la Universidad Austral de Chile .
+            También participa en el proyecto ALeRCE. Su investigación trata
+            sobre métodos computacionales para analizar datos astronómicos y sus
+            áreas de especialización son el aprendizaje automático, el
+            aprendizaje profundo, la inferencia bayesiana, el procesamiento
+            estadístico de señales y la teoría de la información.
+          </p>
+        )}
       </div>
       <div className="item-scroll-button">
         <ScrollDown />

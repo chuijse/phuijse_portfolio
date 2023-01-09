@@ -1,16 +1,31 @@
 @use "./abstract/color.module" as color;
+@use "./abstract/responsive" as *;
 @use "./abstract/fonts";
 @use "./sections/skills";
 @use "./sections/home";
 @use "./sections/papers";
 
 html{
-  scroll-snap-type: y mandatory;
-  //overscroll-behavior-y: contain;
-  //overflow-y: auto;
-  scroll-snap-stop: always;
+  /*scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;*/
   scroll-behavior: smooth;
-  //overflow: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+  
+  @include tablet {
+    overflow: visible;
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
+    //overscroll-behavior-y: contain;
+    
+  }
+
+  @include large {
+    //overscroll-behavior-y: none;
+    overflow: hidden;
+   scroll-snap-type:unset;
+    scroll-snap-stop: unset;
+  }
 }
 
 body {

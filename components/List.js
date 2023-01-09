@@ -13,9 +13,10 @@ export default function List({
   items,
   title = "Selected Papers",
   url = "papers",
+  id = "undefined",
 }) {
   return (
-    <section className={list ? "grid-list" : "grid-layout"}>
+    <section className={list ? "grid-list" : "grid-layout"} id={id}>
       <div className={list ? "item-title-list" : "item-title"}>
         <Title>{title}</Title>
       </div>

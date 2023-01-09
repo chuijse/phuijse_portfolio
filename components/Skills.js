@@ -14,9 +14,9 @@ const skills = [
   { url: "mdi:space-station", name: "Astro Informatics" },
 ];
 
-export default function Skills() {
+export default function Skills({ id }) {
   return (
-    <article className="grid-layout">
+    <article className="grid-layout" id={id}>
       <div className="item-title">
         <Title title="Engeniering + Astronomy">
           Engeniering{" "}

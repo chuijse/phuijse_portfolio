@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Icons({ isMobile }) {
   const size = isMobile ? "32" : "40";
-  console.log(isMobile);
+  //console.log(isMobile);
 
   return (
     <React.Fragment>

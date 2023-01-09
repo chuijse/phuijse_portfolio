@@ -8,7 +8,7 @@ const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-export default function Contact() {
+export default function Contact({ id }) {
   const [buttonMessage, setButtonMassege] = useState("SEND");
   const form = useRef();
 
@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <article className="grid-layout">
+    <article className="grid-layout" id={id}>
       <div className="item-title">
         <Title>Contact</Title>
       </div>
