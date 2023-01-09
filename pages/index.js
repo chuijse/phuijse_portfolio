@@ -4,9 +4,9 @@ import List from "../components/List";
 import Seo from "../components/Seo";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
-import { useRef } from "react";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
+import { useRouter } from "next/router";
 import {
   motion,
   useScroll,
@@ -21,8 +21,11 @@ import { scroller } from "react-scroll";
 const scroll = scroller;
 
 export default function Home({ isMobile, papers, courses }) {
+  const router = useRouter();
+  const hash = router.query.number;
+
   const [counter, setCounter] = useState(0);
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(hash ? hash : 1);
 
   useEffect(() => {
     const handleWheel = (e) => {
@@ -73,7 +76,7 @@ export default function Home({ isMobile, papers, courses }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ query }) {
   const papers = await client.fetch(`*[_type == "paper"]`);
   const courses = await client.fetch(groq`*[_type == "course"]{
     _id,
@@ -84,11 +87,14 @@ export async function getStaticProps() {
     repository,
     "institutions": institutions[]->{program, institution, url}
   }`);
+  const hash = query;
+  console.log(hash);
 
   return {
     props: {
       papers,
       courses,
+      //hash: hash,
     },
   };
 }

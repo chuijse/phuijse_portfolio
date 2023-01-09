@@ -14,6 +14,7 @@ export default function Home({ isMobile, courses }) {
           list={true}
           items={courses}
           title="All courses"
+          hash="4"
         />
       </article>
     </div>

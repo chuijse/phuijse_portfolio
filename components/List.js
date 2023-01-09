@@ -14,6 +14,7 @@ export default function List({
   title = "Selected Papers",
   url = "papers",
   id = "undefined",
+  hash = "none",
 }) {
   return (
     <section className={list ? "grid-list" : "grid-layout"} id={id}>
@@ -55,7 +56,7 @@ export default function List({
       )}
       {list && (
         <div className="item-home-button">
-          <BackHome />
+          <BackHome hash={hash} />
         </div>
       )}
     </section>

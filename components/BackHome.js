@@ -2,10 +2,18 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function SeeMore({ url = "/" }) {
+export default function SeeMore({ url = "/", hash }) {
   return (
     <React.Fragment>
-      <Link href={url}>
+      <Link
+        href={{
+          pathname: url,
+          hash: hash,
+          query: {
+            number: hash,
+          },
+        }}
+      >
         <button className="back-button">
           <motion.a
             className="text"

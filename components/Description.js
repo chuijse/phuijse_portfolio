@@ -12,7 +12,7 @@ export default function Description({ isMobile, id = "undefined" }) {
   return (
     <section className="grid-layout" id={id}>
       <div className="item-title">
-        <Title>Pablo Huijse Heise</Title>
+        <Title>{isMobile ? "Pablo Huijse H." : "Pablo Huijse Heise"}</Title>
       </div>
       <div className="item-image">
         <Image
@@ -27,42 +27,43 @@ export default function Description({ isMobile, id = "undefined" }) {
       </div>
       <div className="item-abstract">
         {isMobile ? (
-          <p className="paragraph-description">
+          <p className="paragraph-description-mobil">
             <li className="paragraph-list">
-              <b>Ingeniero Eléctrico de la Universidad de Chile</b>, 2009
+              Ingeniero Eléctrico de la Universidad de Chile,{" "}
+              <span className="light">2009</span>
             </li>
             <li className="paragraph-list">
-              <b>Doctorado en Ingeniera Eléctrico de la Universidad de Chile</b>
-              , 2014
+              Doctorado en Ingeniera Eléctrico de la Universidad de Chile ,{" "}
+              <span className="light">2014</span>
             </li>
             <li className="paragraph-list">
-              <b>Postdoctorado en el Instituto Milenio de Astrofísica (MAS)</b>,
-              2015 - 2017
+              Postdoctorado en el Instituto Milenio de Astrofísica (MAS),{" "}
+              <span className="light">2015 - 2017</span>
             </li>
             <li className="paragraph-list">
-              <b>
-                Investigador del MAS, profesor asistente del Instituto de
-                Informática de la Universidad Austral de Chile y participante en
-                el proyecto ALeRCE
-              </b>
-              , 2018 - presente
+              Investigador del MAS, profesor asistente del Instituto de
+              Informática de la Universidad Austral de Chile y participante en
+              el proyecto ALeRCE ,{" "}
+              <span className="light">2018 - presente</span>
             </li>
           </p>
         ) : (
-          <p>
+          <p p className="paragraph-description">
             Pablo nació en Valdivia , Chile en 1985. Recibió su B.Sc. y PE en
-            <strong>Ingeniería Eléctrica de la Universidad de Chile</strong> en
+            <strong> Ingeniería Eléctrica de la Universidad de Chile</strong> en
             2009. Recibió su{" "}
             <b>doctorado en Ingeniería Eléctrica de la Universidad de Chile</b>{" "}
             en 2014. En 2015-2017 realizó un{" "}
             <b>postdoctorado en el Instituto Milenio de Astrofísica</b> (MAS).
-            Desde 2018 es un joven investigador del MAS y profesor asistente del
-            Instituto de Informática de la Universidad Austral de Chile .
-            También participa en el proyecto ALeRCE. Su investigación trata
-            sobre métodos computacionales para analizar datos astronómicos y sus
-            áreas de especialización son el aprendizaje automático, el
-            aprendizaje profundo, la inferencia bayesiana, el procesamiento
-            estadístico de señales y la teoría de la información.
+            Desde 2018 es un joven investigador del MAS y{" "}
+            <b>
+              profesor asistente del Instituto de Informática de la Universidad
+              Austral de Chile . También participa en el proyecto ALeRCE.
+            </b>{" "}
+            Su investigación trata sobre métodos computacionales para analizar
+            datos astronómicos y sus áreas de especialización son el aprendizaje
+            automático, el aprendizaje profundo, la inferencia bayesiana, el
+            procesamiento estadístico de señales y la teoría de la información.
           </p>
         )}
       </div>

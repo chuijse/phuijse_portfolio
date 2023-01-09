@@ -37,15 +37,18 @@
     grid-row: 3 / 4;
     grid-column: 2 / 3;
   }
-  p{
-    font-family: "IBM PLEX Mono", sans-serif;
-    font-weight: 200;
+  .paragraph-description{
+    font-family: "IBM PLEX Sans", sans-serif;
+  }
+  .paragraph-description-mobil{
+    font-family: "IBM PLEX Sans", sans-serif;
+    font-weight: 500;
     li{
       margin-top: 6px;
       list-style: none;
-      b{
-        font-family: "IBM PLEX Sans", sans-serif;
-        font-weight: 400;
+      .light{
+        font-family: "IBM PLEX Mono", sans-serif;
+        font-weight: 200;
       }
     }
   }
