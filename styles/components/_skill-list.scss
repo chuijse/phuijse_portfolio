@@ -4,18 +4,17 @@
 
 
 .itme-skill-description {
-    width: 100%;
+  margin-top: 40px;
+  width: 100%;
   height: 100%;
   //border: 2px solid purple;
   grid-row: 2 / 3;
   grid-column: 2 / 4;
   @include tablet {
-    margin-top: 40px;
     grid-row: 3 / 4;
     grid-column: 2 / 4;
   }
   @include desktop {
-    margin-top: 0px;
     grid-row:3  / 4;
     grid-column: 2 / 6;
   }

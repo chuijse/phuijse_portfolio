@@ -6,6 +6,19 @@ import title from "./Title";
 import { motion } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
 
+const motionIcon = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
+};
+
+const motionContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.8 },
+  },
+};
+
 export default function List({
   isCourses = false,
   isMobile,
@@ -21,7 +34,12 @@ export default function List({
       <div className={list ? "item-title-list" : "item-title"}>
         <Title>{title}</Title>
       </div>
-      <div className={list ? "item-all-papers-list" : "item-paperlist"}>
+      <motion.div
+        variants={motionContainer}
+        initial="hidden"
+        whileInView="show"
+        className={list ? "item-all-papers-list" : "item-paperlist"}
+      >
         {list && (
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam
@@ -45,7 +63,7 @@ export default function List({
             url={isCourses ? item.repository : item.doi}
           />
         ))}
-      </div>
+      </motion.div>
       {!list && (
         <React.Fragment>
           <div className="item-see-more">
@@ -77,6 +95,7 @@ function Item({
 
   return (
     <motion.li
+      variants={motionIcon}
       onTap={() => setSelected(!isSelected)}
       //onHoverEnd={() => setSelected(false)}
     >

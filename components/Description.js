@@ -5,16 +5,22 @@ import profilePic from "../images/pablo.png";
 import ScrollDown from "./ScrollDown";
 import Icons from "./Icons";
 import Div100vh from "react-div-100vh";
+import { motion } from "framer-motion";
 
 //445 x 653
 
 export default function Description({ isMobile, id = "undefined" }) {
   return (
-    <section className="grid-layout" id={id}>
+    <motion.section className="grid-layout" id={id}>
       <div className="item-title">
         <Title>{isMobile ? "Pablo Huijse H." : "Pablo Huijse Heise"}</Title>
       </div>
-      <div className="item-image">
+      <motion.div
+        className="item-image"
+        initial={{ x: 50, clipPath: "inset(0% 100% 0% 0%)" }}
+        whileInView={{ x: 0, clipPath: "inset(0% 0% 0% 0%)" }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
         <Image
           src={profilePic}
           alt="Picture of the author"
@@ -24,31 +30,41 @@ export default function Description({ isMobile, id = "undefined" }) {
           // blurDataURL="data:..." automatically provided
           placeholder="blur" // Optional blur-up while loading
         />
-      </div>
+      </motion.div>
       <div className="item-abstract">
         {isMobile ? (
-          <p className="paragraph-description-mobil">
+          <motion.p
+            className="paragraph-description-mobil"
+            initial={{ y: "-100%", clipPath: "inset(100% 0% 0% 0%)" }}
+            whileInView={{ y: 0, clipPath: "inset(0% 0% 0% 0%)" }}
+            transition={{ duration: 0.5, delay: 1 }}
+          >
             <li className="paragraph-list">
-              Ingeniero Eléctrico de la Universidad de Chile,{" "}
-              <span className="light">2009</span>
+              Ingeniero Eléctrico de la Universidad de Chile,
+              <span className="light"> 2009</span>
             </li>
             <li className="paragraph-list">
-              Doctorado en Ingeniera Eléctrico de la Universidad de Chile ,{" "}
-              <span className="light">2014</span>
+              Doctorado en Ingeniera Eléctrico de la Universidad de Chile ,
+              <span className="light"> 2014</span>
             </li>
             <li className="paragraph-list">
-              Postdoctorado en el Instituto Milenio de Astrofísica (MAS),{" "}
-              <span className="light">2015 - 2017</span>
+              Postdoctorado en el Instituto Milenio de Astrofísica (MAS),
+              <span className="light"> 2015 - 2017</span>
             </li>
             <li className="paragraph-list">
               Investigador del MAS, profesor asistente del Instituto de
               Informática de la Universidad Austral de Chile y participante en
-              el proyecto ALeRCE ,{" "}
-              <span className="light">2018 - presente</span>
+              el proyecto ALeRCE ,
+              <span className="light"> 2018 - presente</span>
             </li>
-          </p>
+          </motion.p>
         ) : (
-          <p p className="paragraph-description">
+          <motion.p
+            className="paragraph-description"
+            initial={{ y: "-50%", clipPath: "inset(100% 0% 0% 0%)" }}
+            whileInView={{ y: 0, clipPath: "inset(0% 0% 0% 0%)" }}
+            transition={{ duration: 0.5, delay: 1 }}
+          >
             Pablo nació en Valdivia , Chile en 1985. Recibió su B.Sc. y PE en
             <strong> Ingeniería Eléctrica de la Universidad de Chile</strong> en
             2009. Recibió su{" "}
@@ -64,7 +80,7 @@ export default function Description({ isMobile, id = "undefined" }) {
             datos astronómicos y sus áreas de especialización son el aprendizaje
             automático, el aprendizaje profundo, la inferencia bayesiana, el
             procesamiento estadístico de señales y la teoría de la información.
-          </p>
+          </motion.p>
         )}
       </div>
       <div className="item-scroll-button">
@@ -73,6 +89,6 @@ export default function Description({ isMobile, id = "undefined" }) {
       <div className="item-icons">
         <Icons isMobile={isMobile} />
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -8,6 +8,22 @@ const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
+const motionIcon = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { ease: "easeInOut", duration: 0.5 } },
+};
+
+const motionContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 1,
+    },
+  },
+};
+
 export default function Contact({ id }) {
   const [buttonMessage, setButtonMassege] = useState("SEND");
   const form = useRef();
@@ -32,29 +48,57 @@ export default function Contact({ id }) {
         <Title>Contact</Title>
       </div>
       <div className="item-contact">
-        <p>
+        <motion.p
+          initial={{
+            y: "-100%",
+            clipPath: "inset(100% 0% 0% 0%)",
+            marginTop: "40px",
+          }}
+          whileInView={{
+            y: 0,
+            clipPath: "inset(0% 0% 0% 0%)",
+            marginTop: "40px",
+          }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam
           molestie at condimentum velit. adipiscing nunc justo.
-        </p>
-        <form ref={form} onSubmit={sendEmail} className="email-form-root">
-          <label htmlFor="from_name">Name:</label>
-          <input
+        </motion.p>
+        <motion.form
+          ref={form}
+          onSubmit={sendEmail}
+          className="email-form-root"
+          variants={motionContainer}
+          initial="hidden"
+          whileInView="show"
+        >
+          <motion.label variants={motionIcon} htmlFor="from_name">
+            Name:
+          </motion.label>
+          <motion.input
+            variants={motionIcon}
             type="text"
             id="name"
             name="from_name"
             required
             placeholder="Write your name.."
           />
-          <label htmlFor="user_email">Email:</label>
-          <input
+          <motion.label variants={motionIcon} htmlFor="user_email">
+            Email:
+          </motion.label>
+          <motion.input
+            variants={motionIcon}
             type="email"
             id="email"
             name="user_email"
             required
             placeholder="Write your email.."
           />
-          <label htmlFor="message">Message:</label>
-          <textarea
+          <motion.label variants={motionIcon} htmlFor="message">
+            Message:
+          </motion.label>
+          <motion.textarea
+            variants={motionIcon}
             type="text"
             id="message"
             name="message"
@@ -63,6 +107,7 @@ export default function Contact({ id }) {
             placeholder="Great to meet you"
           />
           <motion.input
+            variants={motionIcon}
             whileHover={{ color: style.primaryColor }}
             animate={{
               color: buttonMessage === "SENT" ? style.primaryColor : style.text,
@@ -81,7 +126,7 @@ export default function Contact({ id }) {
               Your message was sent successfully
             </motion.caption>
           ) : null}
-        </form>
+        </motion.form>
       </div>
     </article>
   );

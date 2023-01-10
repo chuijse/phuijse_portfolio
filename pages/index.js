@@ -59,7 +59,9 @@ export default function Home({ isMobile, papers, courses }) {
 
   return (
     <article>
-      <Description isMobile={isMobile} id="1" />
+      <motion.div>
+        <Description isMobile={isMobile} id="1" />
+      </motion.div>
       <List isMobile={isMobile} items={papers} id="2" />
       <Skills id="3" />
       <List

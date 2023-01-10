@@ -39,12 +39,11 @@
 .item-title {
   height: 100%;
   z-index: 2;
-  //display: flex;
-  //border: 2px solid blue;
+  display: flex;
+ // border: 2px solid blue;
   grid-row: 1 / 2;
   grid-column: 2 / 4;
-  //display: flex;
-  //align-items: flex-end;
+  align-items: flex-end;
 
   @include tablet {
     grid-row: 2 / 3;
