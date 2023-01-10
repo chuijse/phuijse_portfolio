@@ -12,6 +12,7 @@
     "@emailjs/browser": "^3.10.0",
     "@iconify/react": "^4.0.0",
     "@portabletext/react": "^2.0.0",
+    "@react-pdf/renderer": "^3.0.2",
     "@sanity/image-url": "^1.0.1",
     "framer-motion": "^8.0.2",
     "next": "12.3.1",

@@ -17,7 +17,7 @@ const skills = [
 
 const motionIcon = {
   hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0 },
+  show: { opacity: 1, y: 0, transition: { ease: "easeInOut", duration: 0.5 } },
 };
 
 const motionContainer = {

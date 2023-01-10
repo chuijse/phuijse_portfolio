@@ -8,7 +8,7 @@ import style from "../styles/abstract/_color.module.scss";
 
 const motionIcon = {
   hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0 },
+  show: { opacity: 1, y: 0, transition: { ease: "easeInOut", duration: 0.5 } },
 };
 
 const motionContainer = {
@@ -38,7 +38,7 @@ export default function List({
         variants={motionContainer}
         initial="hidden"
         whileInView="show"
-        className={list ? "item-all-papers-list" : "item-paperlist"}
+        className={list ? "item-all-papers-list" : "item-paper-list"}
       >
         {list && (
           <p>
@@ -66,10 +66,20 @@ export default function List({
       </motion.div>
       {!list && (
         <React.Fragment>
-          <div className="item-see-more">
+          <motion.div
+            className="item-see-more"
+            initial={{ clipPath: "inset(0% 0% 0% 100%)" }}
+            whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+            transition={{ duration: 1, delay: 1.8 }}
+          >
             <SeeMore url={url} />
-          </div>
-          <div className="item-bottom-line" />
+          </motion.div>
+          <motion.div
+            className="item-bottom-line"
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            transition={{ duration: 0.8, delay: 1 }}
+          />
         </React.Fragment>
       )}
       {list && (

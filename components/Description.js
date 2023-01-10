@@ -1,25 +1,34 @@
-import React from "react";
+import React, { useRef } from "react";
 import Title from "./Title";
 import Image from "next/image";
 import profilePic from "../images/pablo.png";
 import ScrollDown from "./ScrollDown";
 import Icons from "./Icons";
 import Div100vh from "react-div-100vh";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 //445 x 653
 
 export default function Description({ isMobile, id = "undefined" }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
   return (
     <motion.section className="grid-layout" id={id}>
-      <div className="item-title">
+      <div className="item-title" ref={ref}>
         <Title>{isMobile ? "Pablo Huijse H." : "Pablo Huijse Heise"}</Title>
       </div>
       <motion.div
         className="item-image"
         initial={{ x: 50, clipPath: "inset(0% 100% 0% 0%)" }}
-        whileInView={{ x: 0, clipPath: "inset(0% 0% 0% 0%)" }}
-        transition={{ duration: 0.5, delay: 0.6 }}
+        animate={{
+          x: isInView ? 0 : 50,
+          clipPath: isInView ? "inset(0% 0% 0% 0%)" : "inset(0% 100% 0% 0%)",
+        }}
+        transition={{
+          duration: isInView ? 0.8 : 0.5,
+          delay: isInView ? 0.8 : 0,
+        }}
       >
         <Image
           src={profilePic}
@@ -36,8 +45,13 @@ export default function Description({ isMobile, id = "undefined" }) {
           <motion.p
             className="paragraph-description-mobil"
             initial={{ y: "-100%", clipPath: "inset(100% 0% 0% 0%)" }}
-            whileInView={{ y: 0, clipPath: "inset(0% 0% 0% 0%)" }}
-            transition={{ duration: 0.5, delay: 1 }}
+            animate={{
+              y: isInView ? 0 : "-100%",
+              clipPath: isInView
+                ? "inset(0% 0% 0% 0%)"
+                : "inset(100% 0% 0% 0%)",
+            }}
+            transition={{ duration: 0.5, delay: isInView ? 1 : 0 }}
           >
             <li className="paragraph-list">
               Ingeniero Eléctrico de la Universidad de Chile,
@@ -61,9 +75,14 @@ export default function Description({ isMobile, id = "undefined" }) {
         ) : (
           <motion.p
             className="paragraph-description"
-            initial={{ y: "-50%", clipPath: "inset(100% 0% 0% 0%)" }}
-            whileInView={{ y: 0, clipPath: "inset(0% 0% 0% 0%)" }}
-            transition={{ duration: 0.5, delay: 1 }}
+            initial={{ y: "-100%", clipPath: "inset(100% 0% 0% 0%)" }}
+            animate={{
+              y: isInView ? 0 : "-100%",
+              clipPath: isInView
+                ? "inset(0% 0% 0% 0%)"
+                : "inset(100% 0% 0% 0%)",
+            }}
+            transition={{ duration: 0.5, delay: isInView ? 1 : 0 }}
           >
             Pablo nació en Valdivia , Chile en 1985. Recibió su B.Sc. y PE en
             <strong> Ingeniería Eléctrica de la Universidad de Chile</strong> en
@@ -84,7 +103,7 @@ export default function Description({ isMobile, id = "undefined" }) {
         )}
       </div>
       <div className="item-scroll-button">
-        <ScrollDown />
+        <ScrollDown isInView={isInView} />
       </div>
       <div className="item-icons">
         <Icons isMobile={isMobile} />
