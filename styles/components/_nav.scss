@@ -3,15 +3,20 @@
 @use "../abstract/responsive" as *;
 
 .nav-root {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  left: 0%;
-  top: 0%;
-  bottom: 0%;
-  width: 120px;
-  z-index: 2000;
-  //border: 3px solid red;
+  pointer-events: none;
+  display: none;
+  @include large{
+    pointer-events: all;
+    //border: 3px solid red;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    left: 0%;
+    top: 0%;
+    bottom: 0%;
+    width: 120px;
+    z-index: 2000;
+  }
 
   ul {
     //border: 3px solid blue;

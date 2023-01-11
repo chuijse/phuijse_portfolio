@@ -4,6 +4,7 @@ import React, { useState, useLayoutEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
   const [hideOnMobile, setHideOnMobile] = useState(false);
 
   useLayoutEffect(() => {

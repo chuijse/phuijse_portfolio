@@ -60,7 +60,7 @@ export default function Home({ isMobile, papers, courses }) {
   return (
     <article>
       <Seo />
-      {!isMobile && <Nav index={index} setIndex={setIndex} />}
+      <Nav index={index} setIndex={setIndex} />
       <motion.div>
         <Description isMobile={isMobile} id="1" />
       </motion.div>

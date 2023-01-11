@@ -3,6 +3,9 @@
 @use "../abstract/responsive" as *;
 
 .scroll-down-root {
+  display: none;
+
+  @include large {
   //border: 1px solid red;
   display: flex;
   cursor: pointer;
@@ -13,8 +16,7 @@
   width: 50px;
   //rotate: 90deg;
   //transform-origin: bottom right;
-
-  
+  }
   .text {
     flex-shrink: 0;
     //border: 1px solid blue;
@@ -25,8 +27,7 @@
     rotate: 90deg;
     margin-left: 1.6rem;
     transform-origin: top left;
-  }
-  
+  }  
   .line {
     background-color: color.$text;
     height: 20%;

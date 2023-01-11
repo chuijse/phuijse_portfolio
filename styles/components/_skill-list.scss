@@ -21,7 +21,7 @@
   h4 {
     margin-top: 20px;
     margin-bottom: 20px;
-    @include desktop {
+    @include large{
       margin-top: 30px;
       margin-bottom: 40px;
     }
@@ -30,7 +30,8 @@
     margin-top: 5px;
     margin-bottom: 12px;
     padding-left: 5px;
-    @include desktop {
+    
+    @include large {
       margin-top: 10px;
       margin-bottom: 20px;
       padding-left: 20px;
