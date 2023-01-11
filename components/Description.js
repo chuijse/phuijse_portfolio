@@ -41,66 +41,40 @@ export default function Description({ isMobile, id = "undefined" }) {
         />
       </motion.div>
       <div className="item-abstract">
-        {isMobile ? (
-          <motion.p
-            className="paragraph-description-mobil"
-            initial={{ y: "-100%", clipPath: "inset(100% 0% 0% 0%)" }}
-            animate={{
-              y: isInView ? 0 : "-100%",
-              clipPath: isInView
-                ? "inset(0% 0% 0% 0%)"
-                : "inset(100% 0% 0% 0%)",
-            }}
-            transition={{ duration: 0.5, delay: isInView ? 1 : 0 }}
-          >
-            <li className="paragraph-list">
-              Ingeniero Eléctrico de la Universidad de Chile,
-              <span className="light"> 2009</span>
-            </li>
-            <li className="paragraph-list">
-              Doctorado en Ingeniera Eléctrico de la Universidad de Chile ,
-              <span className="light"> 2014</span>
-            </li>
-            <li className="paragraph-list">
-              Postdoctorado en el Instituto Milenio de Astrofísica (MAS),
-              <span className="light"> 2015 - 2017</span>
-            </li>
-            <li className="paragraph-list">
-              Investigador del MAS, profesor asistente del Instituto de
-              Informática de la Universidad Austral de Chile y participante en
-              el proyecto ALeRCE ,
-              <span className="light"> 2018 - presente</span>
-            </li>
-          </motion.p>
-        ) : (
-          <motion.p
-            className="paragraph-description"
-            initial={{ y: "-100%", clipPath: "inset(100% 0% 0% 0%)" }}
-            animate={{
-              y: isInView ? 0 : "-100%",
-              clipPath: isInView
-                ? "inset(0% 0% 0% 0%)"
-                : "inset(100% 0% 0% 0%)",
-            }}
-            transition={{ duration: 0.5, delay: isInView ? 1 : 0 }}
-          >
-            Pablo nació en Valdivia , Chile en 1985. Recibió su B.Sc. y PE en
-            <strong> Ingeniería Eléctrica de la Universidad de Chile</strong> en
-            2009. Recibió su{" "}
-            <b>doctorado en Ingeniería Eléctrica de la Universidad de Chile</b>{" "}
-            en 2014. En 2015-2017 realizó un{" "}
-            <b>postdoctorado en el Instituto Milenio de Astrofísica</b> (MAS).
-            Desde 2018 es un joven investigador del MAS y{" "}
-            <b>
-              profesor asistente del Instituto de Informática de la Universidad
-              Austral de Chile . También participa en el proyecto ALeRCE.
-            </b>{" "}
-            Su investigación trata sobre métodos computacionales para analizar
-            datos astronómicos y sus áreas de especialización son el aprendizaje
-            automático, el aprendizaje profundo, la inferencia bayesiana, el
-            procesamiento estadístico de señales y la teoría de la información.
-          </motion.p>
-        )}
+        <motion.div
+          initial={{ y: "-100%", clipPath: "inset(100% 0% 0% 0%)" }}
+          animate={{
+            y: isInView ? 0 : "-100%",
+            clipPath: isInView ? "inset(0% 0% 0% 0%)" : "inset(100% 0% 0% 0%)",
+          }}
+          transition={{ duration: 0.5, delay: isInView ? 1 : 0 }}
+        >
+          <li className="paragraph-list">
+            <p className="paragraph-description">
+              Assistant professor, Informatics Institute, Universidad Austral de
+              Chile
+            </p>
+            <p className="light"> 2018 - present</p>
+          </li>
+          <li className="paragraph-list">
+            <p className="paragraph-description">
+              Young researcher, Millennium Institute of Astrophysics (MAS)
+            </p>
+            <p className="light"> 2018 - present</p>
+          </li>
+          <li className="paragraph-list">
+            <p className="paragraph-description">
+              Postdoctoral researcher, MAS
+            </p>
+            <p className="light"> 2015 - 2017</p>
+          </li>
+          <li className="paragraph-list">
+            <p className="paragraph-description">
+              PhD in Electrical Engineering, Universidad de Chile
+            </p>
+            <p className="light"> 2014</p>
+          </li>
+        </motion.div>
       </div>
       <div className="item-scroll-button">
         <ScrollDown isInView={isInView} />

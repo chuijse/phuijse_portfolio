@@ -28,6 +28,7 @@ export default function List({
   url = "papers",
   id = "undefined",
   hash = "none",
+  selected = false,
 }) {
   return (
     <section className={list ? "grid-list" : "grid-layout"} id={id}>
@@ -42,10 +43,8 @@ export default function List({
       >
         {list && (
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam
-            molestie at condimentum velit, adipiscing nunc justo, molestie.
-            Donec diam molestie at condimentum velit, adipiscing nunc justo,
-            molestie.
+            Click on the title of a {isCourses ? "course" : "paper"} to see its
+            abstract
           </p>
         )}
         {items.map((item, i) => (
@@ -61,6 +60,7 @@ export default function List({
               isCourses ? `${item.startYear} to ${item.finalYear}` : item.year
             }
             url={isCourses ? item.repository : item.doi}
+            selected={selected}
           />
         ))}
       </motion.div>
@@ -100,6 +100,7 @@ function Item({
   institutions,
   url,
   abstract,
+  selected,
 }) {
   const [isSelected, setSelected] = useState(false);
 
@@ -117,29 +118,35 @@ function Item({
       <div>
         <motion.h3
           //onHoverStart={() => setSelected(true)}
-          whileHover={{ color: style.primaryColor }}
-          animate={{ color: isSelected ? style.primaryColor : style.textColor }}
-          initial={{ cursor: "pointer" }}
+          whileHover={selected && { color: style.primaryColor }}
+          animate={
+            selected && {
+              color: isSelected ? style.primaryColor : style.textColor,
+            }
+          }
+          initial={selected && { cursor: "pointer" }}
         >
           {name}
         </motion.h3>
 
-        <motion.p
-          initial={{ height: 0, opacity: 0 }}
-          t
-          animate={{
-            height: isSelected ? "auto" : "0px",
-            opacity: isSelected ? 1 : 0,
-            //y: isSelected ? "0" : "-300px",
-            clipPath: isSelected
-              ? "inset(0% 0% 0% 0%)"
-              : "inset(0% 0% 100% 0%)",
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="paper-abstract"
-        >
-          {abstract}
-        </motion.p>
+        {selected && (
+          <motion.p
+            initial={{ height: 0, opacity: 0 }}
+            t
+            animate={{
+              height: isSelected ? "auto" : "0px",
+              opacity: isSelected ? 1 : 0,
+              //y: isSelected ? "0" : "-300px",
+              clipPath: isSelected
+                ? "inset(0% 0% 0% 0%)"
+                : "inset(0% 0% 100% 0%)",
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="paper-abstract"
+          >
+            {abstract}
+          </motion.p>
+        )}
 
         <div className="paper-data">
           <h5>

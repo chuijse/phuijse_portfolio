@@ -61,8 +61,7 @@ export default function Contact({ id }) {
           }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec diam
-          molestie at condimentum velit. adipiscing nunc justo.
+          If you have questions or you want to colaborate:
         </motion.p>
         <motion.form
           ref={form}

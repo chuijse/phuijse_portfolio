@@ -13,7 +13,8 @@ export default function Home({ isMobile, papers }) {
           list={true}
           items={papers}
           title="All papers"
-          hash="2"
+          hash="3"
+          selected={true}
         />
       </article>
     </div>

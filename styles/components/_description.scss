@@ -26,6 +26,7 @@
   width: 100%;
   height: 100%;
   //border: 2px solid purple;
+
   grid-row: 3 / 4;
   grid-column: 2 / 4;
   @include tablet {
@@ -37,18 +38,35 @@
     grid-row: 3 / 4;
     grid-column: 2 / 3;
   }
-  .paragraph-description{
-    font-family: "IBM PLEX Sans", sans-serif;
-  }
-  .paragraph-description-mobil{
-    font-family: "IBM PLEX Sans", sans-serif;
-    font-weight: 500;
-    li{
-      margin-top: 6px;
-      list-style: none;
-      .light{
-        font-family: "IBM PLEX Mono", sans-serif;
-        font-weight: 200;
+
+  li {
+    margin-top: 6px;
+    list-style: none;
+    .paragraph-description {
+      font-size: 1.02rem;
+      font-family: "IBM PLEX Sans", sans-serif;
+      font-weight: 500;
+      text-align: left;
+      text-justify: none;
+      margin-top: 10px;
+      margin-bottom: 0%;
+      @include desktop {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-top: 10px;
+      }
+    }
+    .light {
+      font-family: "IBM PLEX Mono", sans-serif;
+      font-weight: 200;
+      text-align: left;
+      text-justify: none;
+      margin-top: 0%;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      @include desktop {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
       }
     }
   }
