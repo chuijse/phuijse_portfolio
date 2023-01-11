@@ -7,6 +7,7 @@ import Contact from "../components/Contact";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
 import { useRouter } from "next/router";
+import Nav from "../components/Nav";
 import {
   motion,
   useScroll,
@@ -43,23 +44,23 @@ export default function Home({ isMobile, papers, courses }) {
           setTimeout(() => setCounter(--counter), 750);
         }
       }
-
       /*console.log(
         `scroll Up : ${wheelDirection}, scrollPosition: ${index}, counter: ${counter}`
       );*/
     };
-
     isMobile ? null : window.addEventListener("wheel", handleWheel);
-
     return () =>
       isMobile ? null : window.removeEventListener("wheel", handleWheel);
-  }, []);
+  });
 
   useEffect(() => scroller.scrollTo(index), [index]);
+
+  //console.log(index);
 
   return (
     <article>
       <Seo />
+      {!isMobile && <Nav index={index} setIndex={setIndex} />}
       <motion.div>
         <Description isMobile={isMobile} id="1" />
       </motion.div>
@@ -80,19 +81,21 @@ export default function Home({ isMobile, papers, courses }) {
 }
 
 export async function getStaticProps({ query }) {
-  const papers = await client.fetch(`*[_type == "paper"]`);
-  const courses = await client.fetch(groq`*[_type == "course"]{
+  const papers = await client.fetch(
+    `*[_type == "paper" && selected == true]| order(year) [0...3]`
+  );
+  const courses =
+    await client.fetch(groq`*[_type == "course" && selected == true] | order(startYear) {
     _id,
     name,
+    selected,
     startYear,
     finalYear,
     abstract,
     repository,
     "institutions": institutions[]->{program, institution, url}
-  }`);
+  }[0...3]`);
   const hash = query;
-  console.log(hash);
-
   return {
     props: {
       papers,

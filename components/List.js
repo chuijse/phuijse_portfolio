@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SeeMore from "./SeeMore";
 import Title from "./Title";
 import BackHome from "./BackHome";
-import title from "./Title";
 import { motion } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
 

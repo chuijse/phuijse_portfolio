@@ -31,8 +31,6 @@ const motionContainer = {
 };
 
 export default function Icons({ isMobile }) {
-  console.log(iconsLists);
-
   return (
     <React.Fragment>
       <motion.div

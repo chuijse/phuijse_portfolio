@@ -26,7 +26,8 @@ export default function Home({ isMobile, courses }) {
 }
 
 export async function getStaticProps() {
-  const courses = await client.fetch(groq`*[_type == "course"]{
+  const courses =
+    await client.fetch(groq`*[_type == "course"] | order(startYear){
     _id,
     name,
     startYear,
@@ -34,7 +35,7 @@ export async function getStaticProps() {
     abstract,
     repository,
     "institutions": institutions[]->{program, institution, url}
-  }`);
+  } `);
 
   return {
     props: {

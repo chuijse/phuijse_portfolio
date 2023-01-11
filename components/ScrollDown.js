@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function scrollDown({ isInView }) {
-  console.log(isInView);
   return (
     <React.Fragment>
       <motion.div

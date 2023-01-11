@@ -25,7 +25,9 @@ export default function Home({ isMobile, papers }) {
 }
 
 export async function getStaticProps() {
-  const papers = await client.fetch(`*[_type == "paper"]`);
+  const papers = await client.fetch(
+    `*[_type == "paper"] | order(year) [0...3]`
+  );
 
   return {
     props: {

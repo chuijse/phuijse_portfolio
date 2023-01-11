@@ -34,10 +34,10 @@ export default function Contact({ id }) {
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
       (result) => {
         setButtonMassege("SENT");
-        console.log(result.text);
+        //console.log(result.text);
       },
       (error) => {
-        console.log(error.text);
+        //console.log(error.text);
       }
     );
   };
