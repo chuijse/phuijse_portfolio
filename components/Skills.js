@@ -12,7 +12,7 @@ const skills = [
     url: "fad:logo-audiobus",
     name: "Statistical Signal Processing",
   },
-  { url: "game-icons:observatory", name: "Astro Informatics" },
+  { url: "game-icons:observatory", name: "Astroinformatics" },
 ];
 
 const motionIcon = {
