@@ -2,20 +2,20 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 export default function Seo({
-  pageTitle = "Pablo huijse portfolio",
-  description = "Pablo huijse is an active university teacher and resarcher, his is especialist in machine learnig, deep learnig, information theory, bayesian Inference, statistical signal processing and astro informaticas",
+  pageTitle = "Pablo Huijse's personal website",
+  description = "Pablo Huijse is an assistant professor at Universidad Austral de Chile and young researcher at the Millennium Institute of Astrophysics. His research is on machine learning and data science with applications in astronomy and engineering.",
   icon = "/favicon.ico",
   icon16 = "/favicon-16x16.png",
   icon32 = "/favicon-32x32.png",
   iconApple = "/apple-touch-icon.png",
   image = "/meta-data.jpg",
-  year = "2022",
+  year = "2023",
   author = "Cristian Huijse Heise",
   //linkedin = "https://cl.linkedin.com/in/pablohuijse",
   github = "https://github.com/phuijse",
   article = false,
   domain = "next-web-rose.vercel.app",
-  keywords = "machine learnig, deep learnig, information theory, bayesian Inference, statistical signal processing, astro informatics, electronic enginering, software developer",
+  keywords = "pablo huijse, machine learning, deep learning, information theory, bayesian inference, statistical signal processing, astroinformatics, electrical enginering, software developer",
 }) {
   const router = useRouter();
   return (

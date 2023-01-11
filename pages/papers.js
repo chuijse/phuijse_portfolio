@@ -6,7 +6,10 @@ import { groq } from "next-sanity";
 export default function Home({ isMobile, papers }) {
   return (
     <div>
-      <Seo pageTitle="my papers" />
+      <Seo
+        pageTitle="Papers"
+        description="A list of journal and conference papers where Pablo Huijse has participated"
+      />
       <article className="papers-layot">
         <PaperList
           isMobile={isMobile}

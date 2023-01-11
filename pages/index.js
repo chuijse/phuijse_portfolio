@@ -59,6 +59,7 @@ export default function Home({ isMobile, papers, courses }) {
 
   return (
     <article>
+      <Seo />
       <motion.div>
         <Description isMobile={isMobile} id="1" />
       </motion.div>

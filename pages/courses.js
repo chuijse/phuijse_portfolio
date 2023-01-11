@@ -6,7 +6,10 @@ import { groq } from "next-sanity";
 export default function Home({ isMobile, courses }) {
   return (
     <div>
-      <Seo pageTitle="my papers" />
+      <Seo
+        pageTitle="Courses"
+        description="A list of university courses that has been dictated by Pablo Huijse. These courses are related to Machine Learning, Neural Networks, Data Science, Statistics and Signal Processing."
+      />
       <article className="papers-layot">
         <PaperList
           isCourses={true}
