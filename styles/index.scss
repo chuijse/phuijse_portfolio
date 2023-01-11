@@ -21,7 +21,7 @@ html{
     
   }
 
-  @include large {
+  @include desktop {
     //overscroll-behavior-y: none;
     overflow: hidden;
    scroll-snap-type:unset;
