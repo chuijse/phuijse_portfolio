@@ -1,0 +1,10 @@
+
+User-agent: *
+Disallow: /api
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+
+Sitemap: http://www.phh.cl/sitemap.xml

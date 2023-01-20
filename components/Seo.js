@@ -20,6 +20,7 @@ export default function Seo({
   const router = useRouter();
   return (
     <Head>
+      <meta lang="en" />
       <title>{`PHH | ${pageTitle}`}</title>
       <meta name="title" content={`PHH | ${pageTitle}`}></meta>
       <meta name="description" content={description} />
