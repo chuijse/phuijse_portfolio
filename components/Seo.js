@@ -14,13 +14,27 @@ export default function Seo({
   //linkedin = "https://cl.linkedin.com/in/pablohuijse",
   github = "https://github.com/phuijse",
   article = false,
-  domain = "next-web-rose.vercel.app",
   keywords = "pablo huijse, machine learning, deep learning, information theory, bayesian inference, statistical signal processing, astroinformatics, electrical enginering, software developer",
 }) {
+  const CANONICAL_DOMAIN = "https://www.phh.com";
   const router = useRouter();
+
+  const _pathSliceLength = Math.min.apply(Math, [
+    router.asPath.indexOf("?") > 0
+      ? router.asPath.indexOf("?")
+      : router.asPath.length,
+    router.asPath.indexOf("#") > 0
+      ? router.asPath.indexOf("#")
+      : router.asPath.length,
+  ]);
+  const canonicalURL =
+    CANONICAL_DOMAIN + router.asPath.substring(0, _pathSliceLength);
+
+  console.log(canonicalURL);
+
   return (
     <Head>
-      <meta lang="en" />
+      <link rel="canonical" href={canonicalURL} />
       <title>{`PHH | ${pageTitle}`}</title>
       <meta name="title" content={`PHH | ${pageTitle}`}></meta>
       <meta name="description" content={description} />
@@ -34,22 +48,16 @@ export default function Seo({
       {/* Facebook Meta Tags */}
       <meta property="og:title" content={`PHH | ${pageTitle}`} key="title" />
       <meta property="og:type" content={article ? "article" : "webpage"} />
-      <meta
-        property="og:url"
-        content={router.route === "/" ? domain : `${domain}${router.pathname}`}
-      />
+      <meta property="og:url" content={canonicalURL} />
       <meta property="og:image" content={image} />
       <meta property="og:description" content={description} key="description" />
-      <meta property="og:site_name" content="Pablo huijse Portfolio" />
+      <meta property="og:site_name" content="Pablo huijse website" />
       <meta property="og:author" content={author} />
       {/* Twitter Meta Tags */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={`PHH | ${pageTitle}`} />
-      <meta
-        property="twitter:url"
-        content={router.route === "/" ? domain : `${domain}${router.pathname}`}
-      />
-      <meta property="twitter:domain" content={domain} />{" "}
+      <meta property="twitter:url" content={canonicalURL} />
+      <meta property="twitter:domain" content={CANONICAL_DOMAIN} />{" "}
       {/* cambiar por chh.work en el futuro */}
       <meta property="twitter:description" content={description} />
       <meta property="twitter:author" content={author} />
