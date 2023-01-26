@@ -16,7 +16,7 @@ export default function Seo({
   article = false,
   keywords = "pablo huijse, machine learning, deep learning, information theory, bayesian inference, statistical signal processing, astroinformatics, electrical enginering, software developer",
 }) {
-  const CANONICAL_DOMAIN = "https://www.phh.com";
+  const CANONICAL_DOMAIN = "https://www.phh.cl";
   const router = useRouter();
 
   const _pathSliceLength = Math.min.apply(Math, [
