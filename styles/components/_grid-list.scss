@@ -7,7 +7,7 @@
   //border: 5px solid blue;
   display: grid;
   width: 100%;
-  grid-template-rows: 25% 45% auto;
+  grid-template-rows: 15vh auto;
   grid-template-columns: 5% 70% 20% 5%;
   gap: 0px;
   @include tablet {
@@ -48,6 +48,6 @@
   }
   
   li{
-    margin-top: 20px;
+    margin-top: 15px;
   }
 }

@@ -7,20 +7,20 @@
   height: 100%;
   grid-row: 2 / 4;
   grid-column: 2 / 4;
-  margin-top: 0px;
+  
   li {
     //border: 5px solid blue;
     list-style-type: none;
-    margin-bottom: 2rem;
+    margin-bottom: 0.8rem;
     display: flex;
     flex-direction: row;
 
     @include tablet {
-      margin-bottom: 5rem;
+      margin-bottom: 1.5rem;
     }
 
     h3{
-      margin-top: 15px;
+      margin-top: 10px;
       z-index: 20;
     }
 
@@ -29,6 +29,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       display: flex ;
+      margin-top: 0px;
       margin-bottom: 0px;
       z-index: 0;
     }
@@ -48,14 +49,17 @@
       }
       h5 {
         z-index: 1;
-        font-size: 1.6rem;
+        font-size: 1.2rem;
+        @include tablet {
+        font-size: 1.6rem; 
+        }
         :after {
           z-index: -1;
           position: absolute;
           content: "";
           transform: translate(-72.5%, 60%);
-          padding-right: 30px;
-          padding-top: 16px;
+          padding-right: 20px;
+          padding-top: 15px;
           background: color.$black;
           @include tablet {
             padding-right: 30px;
@@ -68,11 +72,11 @@
     .paper-data {
       display: flex;
       flex-direction: row;
-      height: 10px;
       margin: 0px;
       padding: 0px;
       h5 {
-        margin-top: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
         @include desktop {
           margin-top: 10px;
         }
@@ -90,7 +94,7 @@
 
 .item-paper-list {
   @include item-list;
-
+  margin-top: 30px;
   @include tablet {
     margin-top: 40px;
     width: 100%;

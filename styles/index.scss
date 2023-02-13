@@ -6,33 +6,18 @@
 @use "./sections/papers";
 
 html{
-  /*scroll-snap-type: y mandatory;
-  overscroll-behavior-y: contain;*/
+  //scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   scroll-snap-stop: always;
-
-  
-  @include tablet {
-    overflow: visible;
-    scroll-snap-type: y mandatory;
-    scroll-snap-stop: always;
-    //overscroll-behavior-y: contain;
-    
-  }
-
-  @include desktop {
-    //overscroll-behavior-y: none;
-    overflow: hidden;
-   scroll-snap-type:unset;
-    scroll-snap-stop: unset;
-  }
 }
 
 body {
   background-color: color.$background-dark;
   margin: 0;
   width: 100%;
+  
 }
 
 a {

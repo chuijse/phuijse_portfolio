@@ -30,7 +30,7 @@ export default function Seo({
   const canonicalURL =
     CANONICAL_DOMAIN + router.asPath.substring(0, _pathSliceLength);
 
-  console.log(canonicalURL);
+  //console.log(canonicalURL);
 
   return (
     <Head>

@@ -19,8 +19,6 @@ import {
 } from "framer-motion";
 import { scroller } from "react-scroll";
 
-const scroll = scroller;
-
 export default function Home({ isMobile, papers, courses }) {
   const router = useRouter();
   const hash = router.query.number;
@@ -28,7 +26,7 @@ export default function Home({ isMobile, papers, courses }) {
   const [counter, setCounter] = useState(0);
   const [index, setIndex] = useState(hash ? hash : 1);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const handleWheel = (e) => {
       const wheelDirection = e.wheelDelta;
       if (counter === 0) {
@@ -46,12 +44,12 @@ export default function Home({ isMobile, papers, courses }) {
       }
       /*console.log(
         `scroll Up : ${wheelDirection}, scrollPosition: ${index}, counter: ${counter}`
-      );*/
-    };
+      );
     isMobile ? null : window.addEventListener("wheel", handleWheel);
     return () =>
       isMobile ? null : window.removeEventListener("wheel", handleWheel);
   });
+  */
 
   useEffect(() => scroller.scrollTo(index), [index]);
 
@@ -60,7 +58,7 @@ export default function Home({ isMobile, papers, courses }) {
   return (
     <article>
       <Seo />
-      <Nav index={index} setIndex={setIndex} />
+      {/*<Nav index={index} setIndex={setIndex} />*/}
       <motion.div>
         <Description isMobile={isMobile} id="1" />
       </motion.div>

@@ -32,7 +32,7 @@ export default function List({
   return (
     <section className={list ? "grid-list" : "grid-layout"} id={id}>
       <div className={list ? "item-title-list" : "item-title"}>
-        <Title>{title}</Title>
+        <Title once={selected}>{title}</Title>
       </div>
       <motion.div
         variants={motionContainer}
@@ -130,11 +130,12 @@ function Item({
 
         {selected && (
           <motion.p
-            initial={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0 }}
             t
             animate={{
               height: isSelected ? "auto" : "0px",
               opacity: isSelected ? 1 : 0,
+              paddingBottom: isSelected ? 5 : 0,
               //y: isSelected ? "0" : "-300px",
               clipPath: isSelected
                 ? "inset(0% 0% 0% 0%)"

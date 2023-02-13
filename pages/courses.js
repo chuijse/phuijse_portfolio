@@ -2,8 +2,16 @@ import PaperList from "../components/List";
 import Seo from "../components/Seo";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
+import { useEffect } from "react";
+
+function enableScroll() {
+  window.onscroll = function () {};
+}
 
 export default function Home({ isMobile, courses }) {
+  useEffect(() => {
+    console.log("window", window);
+  });
   return (
     <div>
       <Seo
@@ -12,13 +20,13 @@ export default function Home({ isMobile, courses }) {
       />
       <article className="papers-layot">
         <PaperList
-          isCourses={true}
+          isCourses={+true}
           isMobile={isMobile}
-          list={true}
+          list={+true}
           items={courses}
           title="All courses"
           hash="4"
-          selected={true}
+          selected={+true}
         />
       </article>
     </div>
