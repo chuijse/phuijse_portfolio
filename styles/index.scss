@@ -5,20 +5,20 @@
 @use "./sections/home";
 @use "./sections/papers";
 
-html{
+html {
   //overflow: auto;
-  overscroll-behavior-y: auto;
+  //overscroll-behavior-y: auto;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scroll-snap-stop: always;
-  display: flex;
+  //scroll-snap-type: y mandatory;
+  //scroll-snap-stop: always;
+  //display: flex;
+  overflow: hidden;
 }
 
 body {
   background-color: color.$background-dark;
   margin: 0;
   width: 100%;
-  
 }
 
 a {
@@ -50,4 +50,3 @@ a {
   scroll-snap-align: start;
   perspective: 500px;
 }
-
