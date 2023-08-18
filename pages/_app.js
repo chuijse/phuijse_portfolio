@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps, scroll }) {
     setHideOnMobile(isMobile);
   }, [isMobile]);
 
-  console.log(scroll);
+  //console.log(scroll);
 
   return <Component {...pageProps} isMobile={hideOnMobile} />;
 }
