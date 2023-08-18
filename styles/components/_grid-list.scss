@@ -3,6 +3,8 @@
 @use "../abstract/responsive" as *;
 
 .grid-list {
+  overflow-y: auto;
+  height: 100vh;
   position: relative;
   //border: 5px solid blue;
   display: grid;
@@ -46,8 +48,8 @@
     grid-row: 2 / 3;
     grid-column: 2 / 3;
   }
-  
-  li{
+
+  li {
     margin-top: 15px;
   }
 }

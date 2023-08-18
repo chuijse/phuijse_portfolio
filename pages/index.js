@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Description from "../components/Description";
 import List from "../components/List";
 import Seo from "../components/Seo";
@@ -24,41 +24,46 @@ export default function Home({ isMobile, papers, courses }) {
   const hash = router.query.number;
 
   const [counter, setCounter] = useState(0);
-  const [index, setIndex] = useState(hash ? hash : 1);
+  const [index, setIndex] = useState(Boolean(hash) === true ? hash : 1);
 
-  /*useEffect(() => {
-    const handleWheel = (e) => {
-      const wheelDirection = e.wheelDelta;
-      if (counter === 0) {
-        if (wheelDirection < 0 && index < 5) {
-          setCounter(++counter);
-          setIndex(++index);
-          setTimeout(() => setCounter(--counter), 750);
-        }
+  console.log(Boolean(hash), hash);
+  console.log(index);
 
-        if (wheelDirection > 0 && index > 1) {
-          setCounter(++counter);
-          setIndex(--index);
-          setTimeout(() => setCounter(--counter), 750);
-        }
+  useEffect(() => {
+    Boolean(hash) === true && setIndex(hash);
+  }, [hash]);
+
+  const handleWheel = (e) => {
+    const wheelDirection = e.wheelDelta;
+    if (counter === 0) {
+      if (wheelDirection < 0 && index < 5) {
+        setCounter(++counter);
+        setIndex(++index);
+        setTimeout(() => setCounter(--counter), 750);
       }
-      /*console.log(
-        `scroll Up : ${wheelDirection}, scrollPosition: ${index}, counter: ${counter}`
-      );
+
+      if (wheelDirection > 0 && index > 1) {
+        setCounter(++counter);
+        setIndex(--index);
+        setTimeout(() => setCounter(--counter), 750);
+      }
+    }
+    /*console.log(
+      `scroll Up : ${wheelDirection}, scrollPosition: ${index}, counter: ${counter}`
+    );*/
     isMobile ? null : window.addEventListener("wheel", handleWheel);
     return () =>
       isMobile ? null : window.removeEventListener("wheel", handleWheel);
-  });
-  */
+  };
 
-  useEffect(() => scroller.scrollTo(index), [index]);
+  useEffect(() => scroller.scrollTo(index, { duration: 1000 }), [index]);
 
   //console.log(index);
 
   return (
-    <article>
+    <article onWheel={(e) => handleWheel(e)} className="index-container">
       <Seo />
-      {/*<Nav index={index} setIndex={setIndex} />*/}
+      <Nav index={index} setIndex={setIndex} />
       <motion.div>
         <Description isMobile={isMobile} id="1" />
       </motion.div>

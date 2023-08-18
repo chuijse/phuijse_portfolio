@@ -2,16 +2,8 @@ import PaperList from "../components/List";
 import Seo from "../components/Seo";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
-import { useEffect } from "react";
-
-function enableScroll() {
-  window.onscroll = function () {};
-}
 
 export default function Home({ isMobile, courses }) {
-  useEffect(() => {
-    console.log("window", window);
-  });
   return (
     <div>
       <Seo
