@@ -6,11 +6,12 @@
 @use "./sections/papers";
 
 html{
-  //scroll-snap-type: y mandatory;
-  overscroll-behavior-y: contain;
+  //overflow: auto;
+  overscroll-behavior-y: auto;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   scroll-snap-stop: always;
+  display: flex;
 }
 
 body {
@@ -46,7 +47,7 @@ a {
   //border: 1px solid red;
   width: 100%;
   height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   perspective: 500px;
 }
 
