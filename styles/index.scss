@@ -12,11 +12,14 @@ html {
   //scroll-snap-type: y mandatory;
   //scroll-snap-stop: always;
   //display: flex;
-  overflow: hidden;
+  overflow: auto;
+  @include desktop {
+    overflow: hidden;
+  }
 }
 
 body {
-  background-color: color.$background-dark;
+  //background-color: color.$background-dark;
   margin: 0;
   width: 100%;
 }
@@ -39,6 +42,20 @@ a {
     background: black;
   }
 }*/
+
+.backgound-image {
+  position: fixed;
+  z-index: -5;
+  display: flex;
+  width: 160%;
+  height: 160vh;
+  border: 1px solid red;
+  //background-image: url("/space.png");
+  //background-color: color.$background-dark
+  .image {
+    object-fit: cover;
+  }
+}
 
 .index-section {
   display: flex;

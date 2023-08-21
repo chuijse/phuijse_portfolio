@@ -4,6 +4,7 @@ import List from "../components/List";
 import Seo from "../components/Seo";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
+import Background from "../components/Background";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
 import { useRouter } from "next/router";
@@ -17,17 +18,19 @@ import {
   useInView,
   useMotionValueEvent,
 } from "framer-motion";
+import Image from "next/image";
 import { scroller } from "react-scroll";
 
 export default function Home({ isMobile, papers, courses }) {
+  const carouselRef = useRef(null);
   const router = useRouter();
   const hash = router.query.number;
 
   const [counter, setCounter] = useState(0);
   const [index, setIndex] = useState(Boolean(hash) === true ? hash : 1);
 
-  console.log(Boolean(hash), hash);
-  console.log(index);
+  //console.log(Boolean(hash), hash);
+  //console.log(index);
 
   useEffect(() => {
     Boolean(hash) === true && setIndex(hash);
@@ -58,10 +61,25 @@ export default function Home({ isMobile, papers, courses }) {
 
   useEffect(() => scroller.scrollTo(index, { duration: 1000 }), [index]);
 
-  //console.log(index);
+  const [mobileIndex, setMobileIndex] = useState(1);
+
+  function onPan(event, info) {
+    if (info.velocity.y < -400 && mobileIndex < 5) {
+      setMobileIndex(mobileIndex + 1);
+    }
+    console.log(mobileIndex);
+    console.log(info.velocity.y);
+  }
 
   return (
-    <article onWheel={(e) => handleWheel(e)} className="index-container">
+    <motion.article
+      draggable
+      onWheel={(e) => handleWheel(e)}
+      className="index-container"
+      onPanEnd={onPan}
+      pan
+    >
+      <Background mobilIndex={mobileIndex} />
       <Seo />
       <Nav index={index} setIndex={setIndex} />
       <motion.div>
@@ -79,7 +97,7 @@ export default function Home({ isMobile, papers, courses }) {
         courses={true}
       />
       <Contact id="5" />
-    </article>
+    </motion.article>
   );
 }
 

@@ -49,7 +49,28 @@ export default function Description({ isMobile, id = "undefined" }) {
           }}
           transition={{ duration: 0.5, delay: isInView ? 1 : 0 }}
         >
-          <li className="paragraph-list">
+          <p>
+            Hola este es mí sitio web, soy Post{" "}
+            <b>Doctorado en ingeniería eléctrica</b>, me encuentro desarrollando
+            investigación activamente desde 2014 hasta la fecha y esta se centra
+            en métodos computacionales para analizar datos astronómicos{" "}
+          </p>
+          <button>BIO</button>
+          <button>Contacto</button>
+        </motion.div>
+      </div>
+      <div className="item-scroll-button">
+        <ScrollDown isInView={isInView} />
+      </div>
+      <div className="item-icons">
+        <Icons isMobile={isMobile} />
+      </div>
+    </motion.section>
+  );
+}
+
+/*
+ <li className="paragraph-list">
             <p className="paragraph-description">
               Assistant professor, Informatics Institute, Universidad Austral de
               Chile
@@ -74,14 +95,4 @@ export default function Description({ isMobile, id = "undefined" }) {
             </p>
             <p className="light"> 2014</p>
           </li>
-        </motion.div>
-      </div>
-      <div className="item-scroll-button">
-        <ScrollDown isInView={isInView} />
-      </div>
-      <div className="item-icons">
-        <Icons isMobile={isMobile} />
-      </div>
-    </motion.section>
-  );
-}
+          */

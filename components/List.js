@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import SeeMore from "./SeeMore";
 import Title from "./Title";
 import BackHome from "./BackHome";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
 
 const motionIcon = {
@@ -28,9 +28,10 @@ export default function List({
   id = "undefined",
   hash = "none",
   selected = false,
+  setIndex,
 }) {
   return (
-    <section className={list ? "grid-list" : "grid-layout"} id={id}>
+    <motion.section className={list ? "grid-list" : "grid-layout"} id={id}>
       <div className={list ? "item-title-list" : "item-title"}>
         <Title once={selected}>{title}</Title>
       </div>
@@ -86,7 +87,7 @@ export default function List({
           <BackHome hash={hash} />
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }
 

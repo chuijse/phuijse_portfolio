@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Title from "./Title";
 import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
@@ -43,11 +43,11 @@ export default function Contact({ id }) {
   };
 
   return (
-    <article className="grid-layout" id={id}>
+    <motion.article className="grid-layout" id={id}>
       <div className="item-title">
         <Title>Contact</Title>
       </div>
-      <div className="item-contact">
+      <motion.div className="item-contact">
         <motion.p
           initial={{
             y: "-100%",
@@ -126,7 +126,7 @@ export default function Contact({ id }) {
             </motion.caption>
           ) : null}
         </motion.form>
-      </div>
-    </article>
+      </motion.div>
+    </motion.article>
   );
 }

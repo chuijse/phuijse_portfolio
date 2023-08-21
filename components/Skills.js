@@ -31,9 +31,9 @@ const motionContainer = {
 export default function Skills({ id, isMobile }) {
   return (
     <article className="grid-layout" id={id}>
-      <div className="item-title">
+      <motion.div className="item-title">
         <Title>Research Statement</Title>
-      </div>
+      </motion.div>
       <div className="itme-skill-description">
         <motion.p
           initial={{ y: "-50%", clipPath: "inset(100% 0% 0% 0%)" }}

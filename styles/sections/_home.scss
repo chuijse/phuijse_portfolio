@@ -20,14 +20,14 @@
 }
 
 .index-container {
-  overflow: auto;
+  overflow-y: auto;
   //overscroll-behavior-y: auto;
   scroll-snap-stop: always;
-  //border: 1px solid red;
+  border: 2px solid red;
   height: 100vh;
   scroll-snap-type: y mandatory;
 
-  @include large {
+  @include desktop {
     height: auto;
     //overscroll-behavior-y: auto;
     scroll-snap-type: unset;
