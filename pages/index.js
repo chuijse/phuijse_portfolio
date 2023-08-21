@@ -20,6 +20,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { scroller } from "react-scroll";
+import { useSwipeable } from "react-swipeable";
 
 export default function Home({ isMobile, papers, courses }) {
   const carouselRef = useRef(null);
@@ -30,56 +31,61 @@ export default function Home({ isMobile, papers, courses }) {
   const [index, setIndex] = useState(Boolean(hash) === true ? hash : 1);
 
   //console.log(Boolean(hash), hash);
-  //console.log(index);
 
   useEffect(() => {
     Boolean(hash) === true && setIndex(hash);
   }, [hash]);
 
-  const handleWheel = (e) => {
-    const wheelDirection = e.wheelDelta;
+  const handleWheel = (value) => {
+    handleScroll(value.wheelDeltaY);
+  };
+
+  const handleScroll = (value) => {
     if (counter === 0) {
-      if (wheelDirection < 0 && index < 5) {
+      if (value < 0 && index < 5) {
         setCounter(++counter);
         setIndex(++index);
         setTimeout(() => setCounter(--counter), 750);
       }
 
-      if (wheelDirection > 0 && index > 1) {
+      if (value > 0 && index > 1) {
         setCounter(++counter);
         setIndex(--index);
         setTimeout(() => setCounter(--counter), 750);
       }
     }
     /*console.log(
-      `scroll Up : ${wheelDirection}, scrollPosition: ${index}, counter: ${counter}`
+      `scroll Up : ${value}, scrollPosition: ${index}, counter: ${counter}`
     );*/
     isMobile ? null : window.addEventListener("wheel", handleWheel);
     return () =>
       isMobile ? null : window.removeEventListener("wheel", handleWheel);
   };
 
-  useEffect(() => scroller.scrollTo(index, { duration: 1000 }), [index]);
+  useEffect(() => scroller.scrollTo(index, { duration: 1500 }), [index]);
 
-  const [mobileIndex, setMobileIndex] = useState(1);
+  const handlers = useSwipeable({
+    onSwipedUp: (eventData) => {
+      handleScroll(eventData.deltaY),
+        console.log("User Swiped up!", eventData.deltaY);
+    },
+    onSwipedDown: (eventData) => {
+      handleScroll(eventData.deltaY),
+        console.log("User Swiped down!", eventData.deltaY);
+    },
+  });
 
-  function onPan(event, info) {
-    if (info.velocity.y < -400 && mobileIndex < 5) {
-      setMobileIndex(mobileIndex + 1);
-    }
-    console.log(mobileIndex);
-    console.log(info.velocity.y);
-  }
+  //console.log(index);
 
   return (
     <motion.article
       draggable
       onWheel={(e) => handleWheel(e)}
       className="index-container"
-      onPanEnd={onPan}
-      pan
+      //onPanEnd={onPan}
+      {...handlers}
     >
-      <Background mobilIndex={mobileIndex} />
+      <Background />
       <Seo />
       <Nav index={index} setIndex={setIndex} />
       <motion.div>

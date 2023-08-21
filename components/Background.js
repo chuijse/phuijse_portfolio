@@ -1,22 +1,9 @@
-import {
-  motion,
-  useScroll,
-  scroll,
-  useTransform,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import React, { useState } from "react";
 import Image from "next/image";
 
-export default function Background({ carouselRef, mobilIndex }) {
+export default function Background({ isMobile }) {
   const { scrollYProgress } = useScroll();
-  //console.log(scrollYProgress.lastUpdated);
-
-  //console.log(scrollYProgress);
-  //const yPosition = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
-  //scroll((progress) => console.log(progress));
-
   const [yPosition, setYPosition] = useState(0);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -24,17 +11,18 @@ export default function Background({ carouselRef, mobilIndex }) {
     //console.log(yPosition);
   });
 
-  //console.log(yPosition);
+  // console.log(yPosition);
 
   return (
     <motion.div
-      //animate={{ y: `${yPosition * -10}%` }}
       style={{ translateY: `${yPosition * -20}%` }}
-      //transition={{ duration: 2, ease: "easeInOut" }}
       className="backgound-image"
     >
-      <h1>{mobilIndex}</h1>
-      <Image src={"/space.png"} layout="fill" className="image" />
+      <Image
+        src={isMobile ? "/space_vertical.png" : "/space.png"}
+        layout="fill"
+        className="image"
+      />
     </motion.div>
   );
 }

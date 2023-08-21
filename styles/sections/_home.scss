@@ -20,16 +20,18 @@
 }
 
 .index-container {
-  overflow-y: auto;
+  overflow-y: hidden;
   //overscroll-behavior-y: auto;
-  scroll-snap-stop: always;
+  //scroll-snap-stop: always;
   border: 2px solid red;
-  height: 100vh;
-  scroll-snap-type: y mandatory;
+  touch-action: none;
+  //height: 100vh;
+  //scroll-snap-type: y mandatory;
 
   @include desktop {
     height: auto;
+    overflow-y: hidden;
     //overscroll-behavior-y: auto;
-    scroll-snap-type: unset;
+    scroll-behavior: smooth;
   }
 }

@@ -2,6 +2,7 @@ import PaperList from "../components/List";
 import Seo from "../components/Seo";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
+import Background from "../components/Background";
 
 export default function Home({ isMobile, papers }) {
   return (
@@ -10,6 +11,7 @@ export default function Home({ isMobile, papers }) {
         pageTitle="Papers"
         description="A list of journal and conference papers where Pablo Huijse has participated"
       />
+      <Background isMobile={isMobile} />
       <article className="papers-layot">
         <PaperList
           isMobile={isMobile}
