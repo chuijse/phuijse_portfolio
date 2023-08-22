@@ -6,7 +6,7 @@ import Background from "../components/Background";
 
 export default function Home({ isMobile, courses }) {
   return (
-    <article className="papers-layot">
+    <article className="index-container">
       <Background isMobile={isMobile} />
       <Seo
         pageTitle="Courses"

@@ -29,9 +29,14 @@ export default function List({
   hash = "none",
   selected = false,
   setIndex,
+  ref,
 }) {
   return (
-    <motion.section className={list ? "grid-list" : "grid-layout"} id={id}>
+    <motion.section
+      className={list ? "grid-list" : "grid-layout"}
+      id={id}
+      ref={ref}
+    >
       <div className={list ? "item-title-list" : "item-title"}>
         <Title once={selected}>{title}</Title>
       </div>

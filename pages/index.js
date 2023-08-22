@@ -37,6 +37,7 @@ export default function Home({ isMobile, papers, courses }) {
   }, [hash]);
 
   const handleWheel = (value) => {
+    //console.log(value);
     handleScroll(value.wheelDeltaY);
   };
 

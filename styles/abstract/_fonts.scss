@@ -31,9 +31,9 @@ h1 {
 h3 {
   font-family: "IBM PLEX Sans", sans-serif;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: color.$text;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
   margin-bottom: 0rem;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -47,7 +47,7 @@ h3 {
   }
 
   @include large {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
     line-height: 2rem;
   }
 }
@@ -57,7 +57,7 @@ h4 {
   font-weight: 500;
   font-size: 1.4rem;
   color: color.$text;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
   margin-bottom: 1.5rem;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -82,7 +82,7 @@ h5 {
   font-weight: 400;
   font-size: 0.875rem;
   color: color.$text;
-  line-height: 1.1rem;
+  line-height: 1.3rem;
   margin-bottom: 0rem;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -125,10 +125,10 @@ code {
 }
 
 .primary {
-  color: color.$primary
+  color: color.$primary;
 }
 
-caption{
+caption {
   font-family: "IBM PLEX Mono", monospace;
   font-weight: 400;
   font-size: 0.9rem;
