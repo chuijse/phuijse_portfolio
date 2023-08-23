@@ -31,9 +31,9 @@ h1 {
 h3 {
   font-family: "IBM PLEX Sans", sans-serif;
   font-weight: 300;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: color.$text;
-  line-height: 1.6rem;
+  line-height: 1.8rem;
   margin-bottom: 0rem;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -45,10 +45,9 @@ h3 {
     padding-top: 3px;
     padding-bottom: 2px;
   }
-
   @include large {
-    font-size: 2.2rem;
-    line-height: 2rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 }
 
@@ -80,13 +79,21 @@ h4 {
 h5 {
   font-family: "IBM PLEX Mono", monospace;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: color.$text;
   line-height: 1.3rem;
   margin-bottom: 0rem;
   padding-top: 3px;
   padding-bottom: 3px;
   @include tablet {
+    font-size: 1.25rem;
+    line-height: 1.2em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  @include desktop {
     font-size: 1.25rem;
     line-height: 1.2em;
     margin-top: 0.5rem;
@@ -106,6 +113,18 @@ p {
   text-justify: inter-word;
   @include tablet {
     font-size: 1.25rem;
+    margin-top: 0px;
+    margin-bottom: 2rem;
+    line-height: 1.8rem;
+  }
+  @include desktop {
+    font-size: 1.25rem;
+    margin-top: 0px;
+    margin-bottom: 2rem;
+    line-height: 1.8rem;
+  }
+  @include large {
+    font-size: 1.3rem;
     margin-top: 0px;
     margin-bottom: 2rem;
     line-height: 1.8rem;

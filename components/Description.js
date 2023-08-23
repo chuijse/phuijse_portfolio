@@ -42,19 +42,16 @@ export default function Description({ isMobile, id = "undefined" }) {
       </motion.div>
       <motion.div
         className="item-abstract-background"
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        whileInView={{ opacity: 1, filter: "blur(4px)" }}
+        initial={{ opacity: 0, filter: "blur(0px)" }}
+        transition={{ duration: 1 }}
       />
       <div className="item-abstract">
         <motion.div
           className="abstract-content"
-          initial={{ y: "-100%", clipPath: "inset(100% 0% 0% 0%)" }}
-          animate={{
-            y: isInView ? 0 : "-100%",
-            clipPath: isInView ? "inset(0% 0% 0% 0%)" : "inset(100% 0% 0% 0%)",
-          }}
-          transition={{ duration: 0.5, delay: isInView ? 1 : 0 }}
+          initial={{ opacity: 0, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
           <p>
             Hola este es mí sitio web, soy Post{" "}

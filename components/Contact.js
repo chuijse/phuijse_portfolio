@@ -47,6 +47,12 @@ export default function Contact({ id }) {
       <div className="item-title">
         <Title>Contact</Title>
       </div>
+      <motion.div
+        className="item-background-contact"
+        whileInView={{ opacity: 1, filter: "blur(4px)" }}
+        initial={{ opacity: 0, filter: "blur(0px)" }}
+        transition={{ duration: 1 }}
+      />
       <motion.div className="item-contact">
         <motion.p
           initial={{

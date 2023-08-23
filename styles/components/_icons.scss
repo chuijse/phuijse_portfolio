@@ -13,8 +13,13 @@
   :hover{
     color: color.$primary
   }
-
   @include tablet {
+    height: auto;
+    width: 140px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @include desktop {
     height: auto;
     width: 140px;
     flex-direction: row;

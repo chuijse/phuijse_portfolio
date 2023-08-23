@@ -2,7 +2,42 @@
 @use "../abstract/fonts" as *;
 @use "../abstract/responsive" as *;
 
+.item-skill-background {
+ @include color.glass {
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+
+  @include tablet {
+    grid-row: 2 / 5;
+    grid-column: 2 / 4;
+    margin-top: -30px;
+    margin-left: -30px;
+    margin-bottom: 100px;
+  }
+  @include desktop{
+    grid-row: 2 / 5;
+    grid-column: 2 / 6;
+    margin-left: -50px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    height: 110%;
+    width: 108%;
+  }
+  @include large{
+    grid-row: 2 / 5;
+    grid-column: 2 / 6;
+    //width: 100%;
+    height: 115%;
+    margin-left: -80px;
+  }
+
+ }
+
+  
+}
+
 .itme-skill-description {
+  z-index: 2;
   margin-top: 0px;
   width: 100%;
   height: 100%;
@@ -18,6 +53,20 @@
     grid-row: 3 / 4;
     grid-column: 2 / 6;
   }
+  p {
+    @include tablet {
+      margin-top: 25px;
+      padding-right: 30px;
+    }
+    @include desktop {
+      margin-top: 0px;
+      padding-right: 50px;
+    }
+    @include large {
+      padding-right: 200px;
+    }
+    
+  }
   h4 {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -26,27 +75,50 @@
       margin-bottom: 40px;
     }
   }
-  ul {
-    margin-top: 5px;
-    margin-bottom: 12px;
-    padding-left: 5px;
-    
-    @include large {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      padding-left: 20px;
+  .item-skills-container{
+    width: fit-content;
+
+    @include tablet {
+      display: auto;
+      height: auto;
     }
-    .skill-list {
-      margin-top: 0px;
+    @include desktop{
+      height: 200px;
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      align-content: center;
-      h5 {
-        margin-left: 20px;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+    @include large {
+      //width: 300px;
+      height: 250px;
+    }
+    ul {
+      //border: 1px solid red;
+      width: fit-content;
+      margin-top: 5px;
+      margin-bottom: 12px;
+      padding-left: 5px;
+      padding-right: 40px;
+
+      @include large {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+      .skill-list {
         margin-top: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        h5 {
+          margin-left: 20px;
+          margin-top: 0px;
+        }
       }
     }
+
   }
+  
 }
