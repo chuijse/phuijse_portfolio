@@ -14,6 +14,7 @@
   align-items: center;
   width: 100%;
   //border: 1px solid red;
+  
 
   @include tablet {
     width: 90px;
@@ -22,6 +23,8 @@
     border-bottom: 1px solid color.$text;
   }
   @include desktop {
+    padding-left: 20px;
+    justify-content: flex-start;
     width: 130px;
   }
   @include large {
@@ -41,6 +44,16 @@
 
     @include tablet {
       font-size: 1.2rem;
+      //font-size: auto;
+      margin-right: 1rem;
+    }
+    @include desktop {
+      font-size: 1.2rem;
+      //font-size: auto;
+      margin-right: 1rem;
+    }
+    @include large {
+      font-size: 1.5rem;
       //font-size: auto;
       margin-right: 1rem;
     }

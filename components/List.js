@@ -35,9 +35,9 @@ export default function List({
         <Title once={selected}>{title}</Title>
       </div>
       <motion.div
-        className="item-list-background"
-        whileInView={{ opacity: 1, filter: "blur(4px)" }}
-        initial={{ opacity: 0, filter: "blur(0px)" }}
+        className={list ? "item-all-list-background" : "item-list-background"}
+        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, filter: "blur(4px)" }}
         transition={{ duration: 1 }}
       />
       <motion.div

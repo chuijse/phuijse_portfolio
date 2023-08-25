@@ -54,7 +54,7 @@ export default function Icons({ isMobile }) {
 }
 
 function MotionIcon({ href, color, icon, isMobile }) {
-  const size = isMobile ? "32" : "40";
+  const size = isMobile ? "30" : "40";
 
   return (
     <motion.a

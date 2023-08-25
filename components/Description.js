@@ -15,7 +15,7 @@ export default function Description({ isMobile, id = "undefined" }) {
 
   return (
     <motion.section className="grid-layout" id={id}>
-      <div className="item-title" ref={ref}>
+      <div className="item-title-main" ref={ref}>
         <Title>{isMobile ? "Pablo Huijse H." : "Pablo Huijse Heise"}</Title>
       </div>
       <motion.div
@@ -42,8 +42,8 @@ export default function Description({ isMobile, id = "undefined" }) {
       </motion.div>
       <motion.div
         className="item-abstract-background"
-        whileInView={{ opacity: 1, filter: "blur(4px)" }}
-        initial={{ opacity: 0, filter: "blur(0px)" }}
+        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, filter: "blur(4px)" }}
         transition={{ duration: 1 }}
       />
       <div className="item-abstract">

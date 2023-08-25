@@ -80,7 +80,6 @@ export default function Home({ isMobile, papers, courses }) {
 
   return (
     <motion.article
-      draggable
       onWheel={(e) => handleWheel(e)}
       className="index-container"
       //onPanEnd={onPan}
