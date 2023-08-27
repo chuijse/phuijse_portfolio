@@ -81,3 +81,40 @@
     }
   }
 }
+
+.paragraph-list {
+  display: flex;
+  flex-direction: column !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 0px;
+  list-style: none;
+  height: auto;
+
+  .paragraph-description {
+    font-size: 1.02rem;
+    font-family: "IBM PLEX Sans", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    text-justify: none;
+    margin-top: 10px;
+    margin-bottom: 0%;
+    @include desktop {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-top: 15px;
+    }
+  }
+  .light {
+    font-family: "IBM PLEX Mono", sans-serif;
+    font-weight: 200;
+    text-align: left;
+    text-justify: none;
+    margin-top: 0%;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    @include desktop {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -9,21 +9,11 @@ import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
 import { useRouter } from "next/router";
 import Nav from "../components/Nav";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  MotionValue,
-  useInView,
-  useMotionValueEvent,
-} from "framer-motion";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { scroller } from "react-scroll";
 import { useSwipeable } from "react-swipeable";
 
 export default function Home({ isMobile, papers, courses }) {
-  const carouselRef = useRef(null);
   const router = useRouter();
   const hash = router.query.number;
 
@@ -31,6 +21,10 @@ export default function Home({ isMobile, papers, courses }) {
   const [index, setIndex] = useState(Boolean(hash) === true ? hash : 1);
 
   //console.log(Boolean(hash), hash);
+
+  useEffect(() => {
+    document.querySelector("html").classList.add("home-html");
+  });
 
   useEffect(() => {
     Boolean(hash) === true && setIndex(hash);

@@ -3,10 +3,15 @@ import Seo from "../components/Seo";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
 import Background from "../components/Background";
+import { useEffect } from "react";
 
 export default function Home({ isMobile, courses }) {
+  useEffect(() => {
+    document.querySelector("html").classList.remove("home-html");
+  });
+
   return (
-    <article className="index-container">
+    <article>
       <Background isMobile={isMobile} />
       <Seo
         pageTitle="Courses"

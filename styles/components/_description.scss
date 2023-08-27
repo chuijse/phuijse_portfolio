@@ -101,7 +101,7 @@
 
     p {
       font-family: "IBM PLEX Sans", sans-serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.5rem;
       @include tablet {
         font-size: 1.2rem;
@@ -122,10 +122,10 @@
         outline: none;
         width: max-content;
         margin-bottom: 10px;
+        z-index: 12 !important;
         a {
           font-family: "IBM PLEX Mono", sans-serif;
           font-weight: 600;
-          
           text-decoration: none;
           text-transform: uppercase;
           color: color.$primary;
@@ -183,7 +183,7 @@
 
 .item-scroll-button {
   //border: 1px solid green;
-  z-index: 10 !important;
+  z-index: 5 !important;
   visibility: hidden;
   @include desktop {
     visibility: visible;
@@ -209,7 +209,9 @@
     grid-column: 3 / 4;
   }
   @include desktop {
-    margin-bottom: 50px;
+    justify-self: end;
+    width: 200px;
+    margin-bottom: 10px;
     grid-row: 4 / 5;
     grid-column: 2 / 3;
   }

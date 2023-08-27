@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import Title from "./Title";
 import emailjs from "@emailjs/browser";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;

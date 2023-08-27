@@ -3,11 +3,9 @@ import {
   useScroll,
   useMotionValueEvent,
   useSpring,
-  scroll,
 } from "framer-motion";
 import React, { useState } from "react";
 import Image from "next/image";
-import { useEffect } from "react";
 
 export default function Background({ isMobile }) {
   const { scrollYProgress } = useScroll({
@@ -25,7 +23,7 @@ export default function Background({ isMobile }) {
     setYPositionSpring(latest);
   });
 
-  console.log(springScroll.current);
+  //console.log(springScroll.current);
 
   return (
     <motion.div

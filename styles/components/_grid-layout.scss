@@ -3,6 +3,7 @@
 @use "../abstract/responsive" as *;
 
 .grid-layout {
+  touch-action: none;
   position: relative;
   //border: 5px solid blue;
   display: grid;
@@ -72,12 +73,19 @@
       grid-row: 3 / 4;
       grid-column: 2 / 4;  
     }
+    @include desktop {
+      margin-top: 0px;
+      margin-left: 0px;
+    }
     h1 {
       @include phone {
         margin-left: 5%;
       }
       @include tablet{
         margin-left: 20px;
+      }
+      @include desktop{
+        margin-left: 0px;
       }
     }
   }
