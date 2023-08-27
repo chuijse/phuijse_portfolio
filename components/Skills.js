@@ -31,9 +31,15 @@ const motionContainer = {
 export default function Skills({ id, isMobile }) {
   return (
     <article className="grid-layout" id={id}>
-      <div className="item-title">
+      <motion.div className="item-title">
         <Title>Research Statement</Title>
-      </div>
+      </motion.div>
+      <motion.div
+        className="item-skill-background"
+        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, filter: "blur(4px)" }}
+        transition={{ duration: 1 }}
+      />
       <div className="itme-skill-description">
         <motion.p
           initial={{ y: "-50%", clipPath: "inset(100% 0% 0% 0%)" }}
@@ -52,11 +58,17 @@ export default function Skills({ id, isMobile }) {
           whileInView="show"
         >
           <motion.h4 variants={motionIcon}>Interests</motion.h4>
-          {skills.map((icon, i) => (
-            <ul key={`skill-list-${i}`}>
-              <SkillsList name={icon.name} url={icon.url} isMobile={isMobile} />
-            </ul>
-          ))}
+          <div className="item-skills-container">
+            {skills.map((icon, i) => (
+              <ul key={`skill-list-${i}`}>
+                <SkillsList
+                  name={icon.name}
+                  url={icon.url}
+                  isMobile={isMobile}
+                />
+              </ul>
+            ))}
+          </div>
         </motion.span>
       </div>
     </article>

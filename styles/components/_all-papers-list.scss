@@ -29,6 +29,7 @@
   right: 0%;
   background: #000;
   padding: 15px;
+  z-index: 50 !important;
 
   @include tablet {
     background: none;
@@ -45,5 +46,75 @@
     margin-top: 0px;
     grid-row: 3 / 4;
     grid-column: 3 / 4;
+  }
+}
+
+.item-all-list-background {
+  @include color.glass {
+    grid-row: 2 / 5;
+    grid-column: 1 / -1;
+    margin-top: -50px;
+    //height: 100%;
+    //border: 1px solid red;
+    @include tablet {
+      grid-row: 2 / 5;
+      grid-column: 2 / 3;
+      margin-left: -20px;
+      width: calc(100% + 40px);
+      margin-bottom: 150px;
+    }
+    @include desktop{
+      grid-row: 2 / 5;
+      grid-column: 2 / 3;
+      margin-left: -25px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      height: 100%;
+      width: calc(100% + 50px);
+    }
+    @include large {
+      margin-left: -60px;
+      width: calc(100% + 120px);
+      grid-row: 2 / 5;
+      grid-column: 2 / 3;
+      
+    }
+  }
+}
+
+.paragraph-list {
+  display: flex;
+  flex-direction: column !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 0px;
+  list-style: none;
+  height: auto;
+
+  .paragraph-description {
+    font-size: 1.02rem;
+    font-family: "IBM PLEX Sans", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    text-justify: none;
+    margin-top: 10px;
+    margin-bottom: 0%;
+    @include desktop {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-top: 15px;
+    }
+  }
+  .light {
+    font-family: "IBM PLEX Mono", sans-serif;
+    font-weight: 200;
+    text-align: left;
+    text-justify: none;
+    margin-top: 0%;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    @include desktop {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
   }
 }

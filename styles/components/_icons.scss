@@ -4,17 +4,30 @@
 
 .icons-root {
   //border: 1px solid red;
+  min-width: 110px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  height: 120px;
+  height: auto;
+  margin-right: 5%;
+  margin-bottom: 25px;
+  //border: 1px solid red;
+  
   transition: all 1s ease;
   cursor: pointer;
+  
   :hover{
     color: color.$primary
   }
-
   @include tablet {
+    margin-right: 30px;
+    margin-bottom: 25px;
+    height: auto;
+    width: 120px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @include desktop {
     height: auto;
     width: 140px;
     flex-direction: row;

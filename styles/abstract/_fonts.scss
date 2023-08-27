@@ -16,7 +16,7 @@ h1 {
   padding-bottom: 3px;
   @include tablet {
     font-size: 3rem;
-    line-height: 1rem;
+    line-height: 1.8rem;
     margin-bottom: 0.5rem;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -31,24 +31,23 @@ h1 {
 h3 {
   font-family: "IBM PLEX Sans", sans-serif;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 1.55rem;
   color: color.$text;
-  line-height: 1.4rem;
+  line-height: 1.65rem;
   margin-bottom: 0rem;
   padding-top: 3px;
   padding-bottom: 3px;
   @include tablet {
     font-size: 1.9rem;
-    line-height: 1.9rem;
+    line-height: 2.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0rem;
     padding-top: 3px;
     padding-bottom: 2px;
   }
-
   @include large {
-    font-size: 1.9rem;
-    line-height: 2rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 }
 
@@ -57,7 +56,7 @@ h4 {
   font-weight: 500;
   font-size: 1.4rem;
   color: color.$text;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
   margin-bottom: 1.5rem;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -80,13 +79,21 @@ h4 {
 h5 {
   font-family: "IBM PLEX Mono", monospace;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: color.$text;
-  line-height: 1.1rem;
+  line-height: 1.4rem;
   margin-bottom: 0rem;
   padding-top: 3px;
   padding-bottom: 3px;
   @include tablet {
+    font-size: 1.25rem;
+    line-height: 1.5em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  @include desktop {
     font-size: 1.25rem;
     line-height: 1.2em;
     margin-top: 0.5rem;
@@ -110,6 +117,18 @@ p {
     margin-bottom: 2rem;
     line-height: 1.8rem;
   }
+  @include desktop {
+    font-size: 1.25rem;
+    margin-top: 0px;
+    margin-bottom: 2rem;
+    line-height: 1.8rem;
+  }
+  @include large {
+    font-size: 1.3rem;
+    margin-top: 0px;
+    margin-bottom: 2rem;
+    line-height: 1.8rem;
+  }
 }
 
 b {
@@ -125,10 +144,10 @@ code {
 }
 
 .primary {
-  color: color.$primary
+  color: color.$primary;
 }
 
-caption{
+caption {
   font-family: "IBM PLEX Mono", monospace;
   font-weight: 400;
   font-size: 0.9rem;

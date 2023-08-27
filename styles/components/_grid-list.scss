@@ -4,7 +4,7 @@
 
 .grid-list {
   overflow-y: auto;
-  height: 100vh;
+  //height: 100vh;
   position: relative;
   //border: 5px solid blue;
   display: grid;
@@ -24,10 +24,12 @@
     gap: 0px;
   }
   @include large {
+    //overflow-y: scroll;
     //border: 1px solid yellow;
     grid-template-rows: 15vh 10vh auto 5%;
     grid-template-columns: 15% 70% 15%;
     width: 100%;
+    //height: auto;
   }
 }
 

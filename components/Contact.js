@@ -43,11 +43,17 @@ export default function Contact({ id }) {
   };
 
   return (
-    <article className="grid-layout" id={id}>
+    <motion.article className="grid-layout" id={id}>
       <div className="item-title">
         <Title>Contact</Title>
       </div>
-      <div className="item-contact">
+      <motion.div
+        className="item-background-contact"
+        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, filter: "blur(4px)" }}
+        transition={{ duration: 1 }}
+      />
+      <motion.div className="item-contact">
         <motion.p
           initial={{
             y: "-100%",
@@ -126,7 +132,7 @@ export default function Contact({ id }) {
             </motion.caption>
           ) : null}
         </motion.form>
-      </div>
-    </article>
+      </motion.div>
+    </motion.article>
   );
 }

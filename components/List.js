@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import SeeMore from "./SeeMore";
 import Title from "./Title";
 import BackHome from "./BackHome";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
 
 const motionIcon = {
@@ -30,10 +30,16 @@ export default function List({
   selected = false,
 }) {
   return (
-    <section className={list ? "grid-list" : "grid-layout"} id={id}>
+    <motion.section className={list ? "grid-list" : "grid-layout"} id={id}>
       <div className={list ? "item-title-list" : "item-title"}>
         <Title once={selected}>{title}</Title>
       </div>
+      <motion.div
+        className={list ? "item-all-list-background" : "item-list-background"}
+        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, filter: "blur(4px)" }}
+        transition={{ duration: 1 }}
+      />
       <motion.div
         variants={motionContainer}
         initial="hidden"
@@ -86,7 +92,7 @@ export default function List({
           <BackHome hash={hash} />
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }
 

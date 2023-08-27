@@ -4,20 +4,14 @@ import List from "../components/List";
 import Seo from "../components/Seo";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
+import Background from "../components/Background";
 import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
 import { useRouter } from "next/router";
 import Nav from "../components/Nav";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  MotionValue,
-  useInView,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { scroller } from "react-scroll";
+import { useSwipeable } from "react-swipeable";
 
 export default function Home({ isMobile, papers, courses }) {
   const router = useRouter();
@@ -26,42 +20,66 @@ export default function Home({ isMobile, papers, courses }) {
   const [counter, setCounter] = useState(0);
   const [index, setIndex] = useState(Boolean(hash) === true ? hash : 1);
 
-  console.log(Boolean(hash), hash);
-  console.log(index);
+  //console.log(Boolean(hash), hash);
+
+  useEffect(() => {
+    document.querySelector("html").classList.add("home-html");
+  });
 
   useEffect(() => {
     Boolean(hash) === true && setIndex(hash);
   }, [hash]);
 
-  const handleWheel = (e) => {
-    const wheelDirection = e.wheelDelta;
+  const handleWheel = (value) => {
+    //console.log(value);
+    handleScroll(value.wheelDeltaY);
+  };
+
+  const handleScroll = (value) => {
     if (counter === 0) {
-      if (wheelDirection < 0 && index < 5) {
+      if (value < 0 && index < 5) {
         setCounter(++counter);
         setIndex(++index);
         setTimeout(() => setCounter(--counter), 750);
       }
 
-      if (wheelDirection > 0 && index > 1) {
+      if (value > 0 && index > 1) {
         setCounter(++counter);
         setIndex(--index);
         setTimeout(() => setCounter(--counter), 750);
       }
     }
     /*console.log(
-      `scroll Up : ${wheelDirection}, scrollPosition: ${index}, counter: ${counter}`
+      `scroll Up : ${value}, scrollPosition: ${index}, counter: ${counter}`
     );*/
     isMobile ? null : window.addEventListener("wheel", handleWheel);
     return () =>
       isMobile ? null : window.removeEventListener("wheel", handleWheel);
   };
 
-  useEffect(() => scroller.scrollTo(index, { duration: 1000 }), [index]);
+  useEffect(() => scroller.scrollTo(index, { duration: 1500 }), [index]);
+
+  const handlers = useSwipeable({
+    onSwipedUp: (eventData) => {
+      handleScroll(eventData.deltaY),
+        console.log("User Swiped up!", eventData.deltaY);
+    },
+    onSwipedDown: (eventData) => {
+      handleScroll(eventData.deltaY),
+        console.log("User Swiped down!", eventData.deltaY);
+    },
+  });
 
   //console.log(index);
 
   return (
-    <article onWheel={(e) => handleWheel(e)} className="index-container">
+    <motion.article
+      onWheel={(e) => handleWheel(e)}
+      className="index-container"
+      //onPanEnd={onPan}
+      {...handlers}
+    >
+      <Background />
       <Seo />
       <Nav index={index} setIndex={setIndex} />
       <motion.div>
@@ -79,7 +97,7 @@ export default function Home({ isMobile, papers, courses }) {
         courses={true}
       />
       <Contact id="5" />
-    </article>
+    </motion.article>
   );
 }
 
