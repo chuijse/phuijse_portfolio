@@ -43,7 +43,7 @@ export default function ContactPage({ hash = "1", bio }) {
             here:
           </p>
           {DocumentsTitles.map((doc, i) => (
-            <li className="paragraph-list">
+            <li className="paragraph-list" key={`documents-li-${i}`}>
               <p className="paragraph-description">{doc}</p>
               <a
                 className="light primary"
