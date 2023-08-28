@@ -1,0 +1,100 @@
+@use "../abstract/color.module" as color;
+@use "../abstract/fonts" as *;
+@use "../abstract/responsive" as *;
+
+.darkBG {
+    //border: 1px solid red;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    z-index: 13 !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+  }
+
+.centered {
+    position: fixed;
+    border: 1px solid red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 14 !important;
+    //overflow-y: scroll;
+    @include color.glass{
+        padding: 10px;
+        width: 80%;
+        @include tablet {
+            padding: 25px;
+            width: 80%;
+        }
+        @include desktop{
+            padding: 25px;
+            width: 90%;
+        }
+        @include large {
+            padding: 50px;
+            width: 75%;
+        }
+    }
+
+}
+
+.modal {
+    z-index: 15 !important;
+    width: 100%;
+    //border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include tablet {
+        flex-direction: column;
+        gap: 50px;
+    }
+    @include desktop {
+        flex-direction: row-reverse;
+        gap: 50px;
+    }
+    
+    
+    .modalHeader {
+        width: 100%;
+        @include desktop {
+            width: 50%;
+        }
+        .model-accion-bar{
+            display: flex;
+            //border: 1px solid red;
+            justify-content: right;
+            width: 100%;
+            
+            button {
+                border: none;
+                background-color: transparent;
+                color: color.$text;
+                cursor: pointer;
+                transition: color 1s;
+                &:hover {
+                    color: color.$primary;
+                }
+            }
+        }
+    }
+
+    .modal-video {
+        //border: 1px solid red;
+        width: 100%;
+        @include desktop {
+            width: 50%;
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

@@ -18,7 +18,7 @@ export default function Home({ isMobile, courses }) {
         description="A list of university courses that has been dictated by Pablo Huijse. These courses are related to Machine Learning, Neural Networks, Data Science, Statistics and Signal Processing."
       />
       <PaperList
-        isCourses={true}
+        documentType="course"
         isMobile={isMobile}
         list={+true}
         items={courses}
@@ -34,7 +34,7 @@ export async function getStaticProps() {
   const courses =
     await client.fetch(groq`*[_type == "course"] | order(startYear){
     _id,
-    name,
+    title,
     startYear,
     finalYear,
     abstract,

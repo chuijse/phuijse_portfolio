@@ -12,17 +12,15 @@ html {
 .home-html {
   scroll-behavior: smooth;
   overflow: hidden;
-  touch-action: none;  
+  touch-action: none;
+  
 }
 
 body {
   //background-color: color.$background-dark;
   margin: 0;
   width: 100%;
-  
 }
-
-
 
 a {
   color: inherit;
