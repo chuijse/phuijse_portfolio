@@ -81,6 +81,7 @@ export default function Home({ isMobile, papers, courses, presentations }) {
 
   return [
     <motion.article
+      key={"index-main"}
       onWheel={(e) => isVideoModal === false && handleWheel(e)}
       className="index-container"
       //onPanEnd={onPan}
@@ -118,7 +119,7 @@ export default function Home({ isMobile, papers, courses, presentations }) {
       />
       <Contact id="6" />
     </motion.article>,
-    <AnimatePresence>
+    <AnimatePresence key={"index-Modal"}>
       {isVideoModal && (
         <Modal
           setIsOpen={setVideoModal}

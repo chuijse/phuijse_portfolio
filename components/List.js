@@ -131,6 +131,7 @@ function Item({
     <motion.li
       variants={motionIcon}
       //onHoverEnd={() => setSelected(false)}
+      key={`li-${documentType}-${i}`}
     >
       <div className="paper-number-list">
         <h5>
