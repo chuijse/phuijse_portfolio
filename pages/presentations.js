@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Modal from "../components/VideoModal";
 import title from "../components/Title";
 import { AnimatePresence } from "framer-motion";
+import AnimationLayout from "../components/AnimationLayout";
 
 export default function Home({ isMobile, presentations }) {
   const [isVideoModal, setVideoModal] = useState(false);
@@ -14,36 +15,39 @@ export default function Home({ isMobile, presentations }) {
 
   useEffect(() => {
     document.querySelector("html").classList.remove("home-html");
+    window.scrollTo(0, 0);
   });
 
   return (
-    <article>
-      <Background isMobile={isMobile} />
-      <Seo
-        pageTitle="Presentations"
-        description="A list of presentations and tutorials that has been dictated by Pablo Huijse. These courses are related to Machine Learning, Neural Networks, Data Science, Statistics and Signal Processing."
-      />
-      <PaperList
-        documentType="presentation"
-        isMobile={isMobile}
-        list={true}
-        items={presentations}
-        title="All presentations"
-        hash="5"
-        selected={true}
-        setVideoModal={setVideoModal}
-        setModalIndex={setModalIndex}
-      />
-      <AnimatePresence>
-        {isVideoModal && (
-          <Modal
-            setIsOpen={setVideoModal}
-            items={presentations}
-            index={isModalIndex}
-          />
-        )}
-      </AnimatePresence>
-    </article>
+    <AnimationLayout>
+      <article>
+        <Background isMobile={isMobile} />
+        <Seo
+          pageTitle="Presentations"
+          description="A list of presentations and tutorials that has been dictated by Pablo Huijse. These courses are related to Machine Learning, Neural Networks, Data Science, Statistics and Signal Processing."
+        />
+        <PaperList
+          documentType="presentation"
+          isMobile={isMobile}
+          list={true}
+          items={presentations}
+          title="All presentations"
+          hash="5"
+          selected={true}
+          setVideoModal={setVideoModal}
+          setModalIndex={setModalIndex}
+        />
+        <AnimatePresence>
+          {isVideoModal && (
+            <Modal
+              setIsOpen={setVideoModal}
+              items={presentations}
+              index={isModalIndex}
+            />
+          )}
+        </AnimatePresence>
+      </article>
+    </AnimationLayout>
   );
 }
 

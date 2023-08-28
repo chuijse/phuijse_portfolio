@@ -34,7 +34,7 @@ export default function Home({ isMobile, papers, courses, presentations }) {
   }, [hash]);
 
   const handleWheel = (value) => {
-    console.log(isModalIndex);
+    //(isModalIndex);
     handleScroll(value.wheelDeltaY);
   };
 
@@ -68,12 +68,12 @@ export default function Home({ isMobile, papers, courses, presentations }) {
 
   const handlers = useSwipeable({
     onSwipedUp: (eventData) => {
-      handleScroll(eventData.deltaY),
-        console.log("User Swiped up!", eventData.deltaY);
+      handleScroll(eventData.deltaY);
+      //console.log("User Swiped up!", eventData.deltaY);
     },
     onSwipedDown: (eventData) => {
-      handleScroll(eventData.deltaY),
-        console.log("User Swiped down!", eventData.deltaY);
+      handleScroll(eventData.deltaY);
+      //console.log("User Swiped down!", eventData.deltaY);
     },
   });
 
@@ -85,6 +85,10 @@ export default function Home({ isMobile, papers, courses, presentations }) {
       className="index-container"
       //onPanEnd={onPan}
       {...(isVideoModal === false ? { ...handlers } : null)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
     >
       <Background />
       <Seo />

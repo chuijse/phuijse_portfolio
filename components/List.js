@@ -32,7 +32,7 @@ export default function List({
   setVideoModal,
   setModalIndex,
 }) {
-  console.log(items);
+  //console.log(items);
   return (
     <motion.section className={list ? "grid-list" : "grid-layout"} id={id}>
       <div className={list ? "item-title-list" : "item-title"}>

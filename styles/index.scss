@@ -6,6 +6,8 @@
 @use "./sections/papers";
 
 html {
+  background-color: black;
+  scroll-behavior: auto;
 
 }
 
@@ -13,6 +15,7 @@ html {
   scroll-behavior: smooth;
   overflow: hidden;
   touch-action: none;
+  background-color: black;
   
 }
 

@@ -6,6 +6,7 @@ export default function SeeMore({ url = "/", hash }) {
   return (
     <React.Fragment>
       <Link
+        scroll={false}
         href={{
           pathname: url,
           hash: hash,
