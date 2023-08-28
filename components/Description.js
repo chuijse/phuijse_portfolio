@@ -54,11 +54,11 @@ export default function Description({ isMobile, id = "undefined" }) {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <p>
-            Hola este es mí sitio web, soy Post{" "}
-            <b>Doctorado en ingeniería eléctrica</b>, me encuentro desarrollando
-            investigación activamente desde 2014 hasta la fecha y esta se centra
-            en métodos computacionales para analizar datos astronómicos, te
-            invito a conocer mi sitio web.{" "}
+            Hello, this is my website, I am a{" "}
+            <b>Post Doctorate in electrical engineering</b>, I have been
+            actively developing research from 2014 to date and it is focused on
+            computational methods to analyze astronomical data. I invite you to
+            visit my website.
           </p>
           <div className="content-buttons">
             <Link href={"/bio"}>
