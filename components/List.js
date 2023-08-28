@@ -4,6 +4,7 @@ import Title from "./Title";
 import BackHome from "./BackHome";
 import { motion, useInView } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
+import Modal from "./VideoModal";
 
 const motionIcon = {
   hidden: { opacity: 0, y: 10 },
@@ -19,7 +20,7 @@ const motionContainer = {
 };
 
 export default function List({
-  isCourses = false,
+  documentType = "paper",
   isMobile,
   list = false,
   items,
@@ -28,7 +29,10 @@ export default function List({
   id = "undefined",
   hash = "none",
   selected = false,
+  setVideoModal,
+  setModalIndex,
 }) {
+  //console.log(items);
   return (
     <motion.section className={list ? "grid-list" : "grid-layout"} id={id}>
       <div className={list ? "item-title-list" : "item-title"}>
@@ -48,24 +52,30 @@ export default function List({
       >
         {list && (
           <p>
-            Click on the title of a {isCourses ? "course" : "paper"} to see its
-            abstract
+            Click on the title of a {` ${documentType} `} to see its abstract
           </p>
         )}
         {items.map((item, i) => (
           <Item
-            isCourse={isCourses}
-            abstract={item.abstract}
-            name={isCourses ? item.name : item.title}
+            documentType={documentType}
+            video={item.video}
+            abstract={
+              documentType === "presentation" ? item.venue : item.abstract
+            }
+            name={item.title}
             i={i}
             key={`best-paper-${i}`}
             magazine={item.journal}
             institutions={item.institutions}
             date={
-              isCourses ? `${item.startYear} to ${item.finalYear}` : item.year
+              documentType === "course"
+                ? `${item.startYear} to ${item.finalYear}`
+                : item.year
             }
-            url={isCourses ? item.repository : item.doi}
+            url={documentType === "paper" ? item.doi : item.repository}
             selected={selected}
+            setVideoModal={setVideoModal}
+            setModalIndex={setModalIndex}
           />
         ))}
       </motion.div>
@@ -97,23 +107,31 @@ export default function List({
 }
 
 function Item({
-  isCourse,
+  documentType,
   name,
   magazine,
   date,
   i,
-  institutions,
+  institutions = null,
   url,
   abstract,
   selected,
+  video,
+  setVideoModal,
+  setModalIndex,
 }) {
   const [isSelected, setSelected] = useState(false);
 
-  return (
+  function handleModal(i) {
+    setVideoModal(true);
+    setModalIndex(i);
+  }
+
+  return [
     <motion.li
       variants={motionIcon}
-      onTap={() => setSelected(!isSelected)}
       //onHoverEnd={() => setSelected(false)}
+      key={`li-${documentType}-${i}`}
     >
       <div className="paper-number-list">
         <h5>
@@ -122,6 +140,7 @@ function Item({
       </div>
       <div>
         <motion.h3
+          onTap={() => setSelected(!isSelected)}
           //onHoverStart={() => setSelected(true)}
           whileHover={selected && { color: style.primaryColor }}
           animate={
@@ -157,21 +176,27 @@ function Item({
         <div className="paper-data">
           <h5>
             <strong>
-              {magazine ||
-                `${institutions[0].program}, ${institutions[0].institution}`}
-              ,&nbsp;
+              {documentType === "paper" && `${magazine}, `}
+              {documentType === "course" &&
+                `${institutions[0]?.program}, ${institutions[0]?.institution}, `}
+              {documentType === "presentation" && video ? (
+                <button className="video-button" onClick={() => handleModal(i)}>
+                  Video here!
+                </button>
+              ) : null}
             </strong>
+
             <span className="gray">{date}, </span>
             <a
-              href={isCourse ? url : `http://doi.org/${url}`}
+              href={documentType === "paper" ? `http://doi.org/${url}` : url}
               target="_blank"
               rel="noreferrer"
             >
-              {isCourse ? "Github" : url}
+              {documentType === "paper" ? url : "Repository"}
             </a>
           </h5>
         </div>
       </div>
-    </motion.li>
-  );
+    </motion.li>,
+  ];
 }

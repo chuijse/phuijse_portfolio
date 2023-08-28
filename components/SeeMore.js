@@ -6,7 +6,7 @@ import style from "../styles/abstract/_color.module.scss";
 export default function SeeMore({ url = "/" }) {
   return (
     <React.Fragment>
-      <Link href={url}>
+      <Link href={url} scroll={false}>
         <motion.button
           whileHover={{ scale: 1.2 }}
           transition={{ duration: 0.5 }}

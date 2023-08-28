@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import style from "../styles/abstract/_color.module.scss";
 
-export default function Nav({ sections = "5", index, setIndex }) {
+export default function Nav({ sections = "6", index, setIndex }) {
   const rows = [];
   for (let i = 1; i < Number(sections) + 1; i++) {
     // note: we are adding a key prop here to allow react to uniquely identify each

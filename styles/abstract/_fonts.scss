@@ -57,6 +57,7 @@ h4 {
   font-size: 1.4rem;
   color: color.$text;
   line-height: 1.6rem;
+  
   margin-bottom: 1.5rem;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -83,6 +84,7 @@ h5 {
   color: color.$text;
   line-height: 1.4rem;
   margin-bottom: 0rem;
+  margin-top: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
   @include tablet {

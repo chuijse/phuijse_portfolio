@@ -6,23 +6,24 @@
 @use "./sections/papers";
 
 html {
+  background-color: black;
+  scroll-behavior: auto;
 
 }
 
 .home-html {
   scroll-behavior: smooth;
   overflow: hidden;
-  touch-action: none;  
+  touch-action: none;
+  background-color: black;
+  
 }
 
 body {
   //background-color: color.$background-dark;
   margin: 0;
   width: 100%;
-  
 }
-
-
 
 a {
   color: inherit;

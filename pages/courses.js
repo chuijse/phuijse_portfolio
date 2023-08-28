@@ -4,29 +4,37 @@ import { client } from "../lib/sanity.client";
 import { groq } from "next-sanity";
 import Background from "../components/Background";
 import { useEffect } from "react";
+import AnimationLayout from "../components/AnimationLayout";
 
 export default function Home({ isMobile, courses }) {
   useEffect(() => {
     document.querySelector("html").classList.remove("home-html");
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
   });
 
   return (
-    <article>
-      <Background isMobile={isMobile} />
-      <Seo
-        pageTitle="Courses"
-        description="A list of university courses that has been dictated by Pablo Huijse. These courses are related to Machine Learning, Neural Networks, Data Science, Statistics and Signal Processing."
-      />
-      <PaperList
-        isCourses={true}
-        isMobile={isMobile}
-        list={+true}
-        items={courses}
-        title="All courses"
-        hash="4"
-        selected={+true}
-      />
-    </article>
+    <AnimationLayout>
+      <article>
+        <Background isMobile={isMobile} />
+        <Seo
+          pageTitle="Courses"
+          description="A list of university courses that has been dictated by Pablo Huijse. These courses are related to Machine Learning, Neural Networks, Data Science, Statistics and Signal Processing."
+        />
+        <PaperList
+          documentType="course"
+          isMobile={isMobile}
+          list={+true}
+          items={courses}
+          title="All courses"
+          hash="4"
+          selected={+true}
+        />
+      </article>
+    </AnimationLayout>
   );
 }
 
@@ -34,7 +42,7 @@ export async function getStaticProps() {
   const courses =
     await client.fetch(groq`*[_type == "course"] | order(startYear){
     _id,
-    name,
+    title,
     startYear,
     finalYear,
     abstract,

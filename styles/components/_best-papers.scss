@@ -145,6 +145,26 @@
         @include desktop {
           margin-top: 10px;
         }
+
+        .video-button{
+          border: none;
+          outline: none;
+          background-color: transparent;
+          color: color.$primary;
+          font-family: "IBM Plex Mono", monospace;
+          font-weight: 600;
+          font-size: 0.9rem;
+          @include tablet {
+            font-size: 1.2rem;
+          }
+          @include desktop {
+            font-size: 1rem;
+          }
+          @include large {
+            font-size: 1.2rem;
+          }
+
+        }
       }
       a{
         color: color.$primary;
